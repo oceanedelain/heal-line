@@ -10,10 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_24_150437) do
+ActiveRecord::Schema.define(version: 2021_05_24_160147) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "consultations", force: :cascade do |t|
+    t.string "description"
+    t.string "category"
+    t.date "date"
+    t.text "notes"
+    t.bigint "user_id", null: false
+    t.bigint "doctor_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["doctor_id"], name: "index_consultations_on_doctor_id"
+    t.index ["user_id"], name: "index_consultations_on_user_id"
+  end
+
+  create_table "doctors", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "specialty"
+    t.integer "phone_number"
+    t.string "address"
+    t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +47,22 @@ ActiveRecord::Schema.define(version: 2021_05_24_150437) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "gender"
+    t.date "birth_date"
+    t.integer "ssn"
+    t.integer "phone_number"
+    t.string "address"
+    t.string "blood_group"
+    t.integer "height"
+    t.integer "weight"
+    t.string "allergies"
+    t.string "treatments"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "consultations", "doctors"
+  add_foreign_key "consultations", "users"
 end
