@@ -1,4 +1,4 @@
-class ConsultationPolicy < ApplicationPolicy
+class SymptomPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.where(user: user)
