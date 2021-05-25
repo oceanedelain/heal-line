@@ -2,6 +2,9 @@
 <html>
   <head>
     <title>HealLine</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ruluko&display=swap" rel="stylesheet">
+    <%# <link rel="icon" type="logo" href="<%= image_url("log.png") %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -14,8 +17,8 @@
 
   <body>
     <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
-
+    <%#= render 'shared/flashes' %>
     <%= yield %>
+    <%= render 'shared/footer' %>
   </body>
 </html>
