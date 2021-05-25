@@ -4,4 +4,7 @@ class PagesController < ApplicationController
   def home
     # @consultation = Consultation.find(params[:id])
   end
+
+  def timeline
+  end
 end
