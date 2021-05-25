@@ -1,0 +1,17 @@
+<div class="form-container">
+  <div class="row">
+    <div class="container py-5 col-4">
+      <div class="mb-3 bg-white">
+        <%= simple_form_for @symptom do |f| %>
+          <%= f.input :date, as: :date %>
+          <%= f.input :name %>
+          <%= f.input :zone %>
+          <%= f.input :intensity %>
+          <%= f.input :duration %>
+          <%= f.input :notes %>
+          <%= f.submit "Enregistrement", class: "btn btn-success" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
