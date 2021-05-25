@@ -15,13 +15,13 @@ User.destroy_all
 
 puts "Database cleaned, now create doctors"
 
-cohen = Doctor.create(first_name: "Michael", last_name: "Cohen", specialty: "Podologue", phone_number: "0736453894", address: "2 rue de la plumerette, 94000 Créteil", email: "michael.cohen@gmail.com")
-durand = Doctor.create(first_name: "Louis", last_name: "Durand", specialty: "Généraliste", phone_number: "0638495374", address: "7 Rue Léon Renault, 93260 Les Lilas", email: "louis.durand@gmail.com")
-chabot = Doctor.create(first_name: "Loana", last_name: "Chabot", specialty: "Ophtalmologue", phone_number: "0636748395", address: "6 Avenue de Vorges, 94300 Vincennes", email: "loana.chabot@gmail.com")
-vincent = Doctor.create(first_name: "Nathalie", last_name: "Vincent", specialty: "Dentiste", phone_number: "0647386574", address: "22 Square Alboni, 75016 Paris", email: "nathalie.vincent@gmail.com")
-petit = Doctor.create(first_name: "David", last_name: "Petit", specialty: "Gynécologue", phone_number: "0646374954", address: "65 Rue d'Hautpoul, 75019 Paris", email: "david.az@gmail.com")
-nour = Doctor.create(first_name: "Henri", last_name: "Nour", specialty: "Gastro-entérologue", phone_number: "0147384675", address: "7 Rue Bergère, 75009 Paris", email: "henri.nour@gmail.com")
-lucas = Doctor.create(first_name: "Anne", last_name: "Lucas", specialty: "Dermatologue", phone_number: "0147384675", address: "7 Rue Bergère, 75009 Paris", email: "henri.nour@gmail.com")
+cohen = Doctor.create!(first_name: "Michael", last_name: "Cohen", specialty: "Podologue", phone_number: "0736453894", address: "2 rue de la plumerette, 94000 Créteil", email: "michael.cohen@gmail.com")
+durand = Doctor.create!(first_name: "Louis", last_name: "Durand", specialty: "Généraliste", phone_number: "0638495374", address: "7 Rue Léon Renault, 93260 Les Lilas", email: "louis.durand@gmail.com")
+chabot = Doctor.create!(first_name: "Loana", last_name: "Chabot", specialty: "Ophtalmologue", phone_number: "0636748395", address: "6 Avenue de Vorges, 94300 Vincennes", email: "loana.chabot@gmail.com")
+vincent = Doctor.create!(first_name: "Nathalie", last_name: "Vincent", specialty: "Dentiste", phone_number: "0647386574", address: "22 Square Alboni, 75016 Paris", email: "nathalie.vincent@gmail.com")
+petit = Doctor.create!(first_name: "David", last_name: "Petit", specialty: "Gynécologue", phone_number: "0646374954", address: "65 Rue d'Hautpoul, 75019 Paris", email: "david.az@gmail.com")
+nour = Doctor.create!(first_name: "Henri", last_name: "Nour", specialty: "Gastro-entérologue", phone_number: "0147384675", address: "7 Rue Bergère, 75009 Paris", email: "henri.nour@gmail.com")
+lucas = Doctor.create!(first_name: "Anne", last_name: "Lucas", specialty: "Dermatologue", phone_number: "0147384675", address: "7 Rue Bergère, 75009 Paris", email: "henri.nour@gmail.com")
 
 puts "Doctors created, now create user"
 
