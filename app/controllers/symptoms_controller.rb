@@ -23,10 +23,12 @@ class SymptomsController < ApplicationController
 
   def edit
     @symptom = Symptom.find(params[:id])
+    authorize(@symptom)
   end
 
   def update
     @symptom.update(symptom_params)
+    authorize(@symptom)
     redirect_to timeline_path
   end
 
