@@ -12,6 +12,17 @@
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 
+    .details {
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.7s ease;
+    }
+
+    &.open .details {
+      max-height: 350px;
+      overflow: auto;
+    }
+
     &:before {
       content: "";
       height: 20px;
@@ -20,8 +31,8 @@
       background-color: black;
       position: absolute;
       left: -21px;
-      top: 50%;
-      transform: translate(-50%, -50%);
+      top: 0%;
+      transform: translate(-50%, 0%);
       background-color: $heal-green;
       border: 2px solid rgba(0, 0, 0, 0.3);
     }
@@ -48,12 +59,8 @@
       font-size: 14px;
     }
 
-    details > summary {
-      list-style: none;
-    }
 
-    details > p {
-      transition-duration: 3s;
-    }
+
+
   }
 }

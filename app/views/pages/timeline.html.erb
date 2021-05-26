@@ -5,18 +5,18 @@
     <ul class="timeline mt-5">
       <% @data.each do |item| %>
         <li class="timeline-card">
-          <details>
-            <summary>
+            <div class="summary">
               <h2><%= item.name %></h2>
               <p><%= item.description %></p>
-            </summary>
+            </div>
+            <div class="details">
               <p><%= item.notes %></p>
               <% if item.is_a? Consultation %>
                 <%= link_to item.details, root_path %>
               <% else %>
                 <p><%= item.details %></p>
               <% end %>
-          </details>
+            </div>
           <p class="timeline-date"><%= item.at.strftime('%e %b') %></p>
           <p class="timeline-year"><%= item.at.strftime('%Y') %></p>
         </li>
