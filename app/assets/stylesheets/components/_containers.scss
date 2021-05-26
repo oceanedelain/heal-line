@@ -1,11 +1,41 @@
 // HOME
 
+.circle-blue{
+  background: $heal-blue;
+}
+.circle-orange{
+  background: $heal-orange;
+}
+
 .cercle-container{
   width: 240px;
   height: 240px;
   border-radius: 50%;
-  background: $heal-green;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   position: relative;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+.week-container{
+  width: 90%;
+  height: 25vh;
+  overflow-x: auto;
+  align-items: center;
+  color: $heal-dark-grey;
+
+  >.day{
+  margin: 8px;
+  }
+
 
 }
+
+.today{
+  background: $heal-blue;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  text-align: center;
+  padding: 4px;}

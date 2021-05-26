@@ -4,7 +4,7 @@
   align-items: center;
   background: $heal-fake-white;
   filter: drop-shadow(4px 0px 4px rgba(0, 0, 0, 0.25));
-  border-top: $heal-green 2px solid;
+  border-top: $heal-blue 2px solid;
   padding: 10px;
   position: fixed;
   bottom: 0;
@@ -36,10 +36,10 @@
 
   &.active {
     img {
-      filter: invert(81%) sepia(29%) saturate(712%) hue-rotate(116deg) brightness(87%) contrast(75%);
+      filter: invert(44%) sepia(16%) saturate(1693%) hue-rotate(188deg) brightness(87%) contrast(90%);
     }
     p {
-      color: black;
+      font-weight: 500;
     }
   }
 }
