@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
   #   redirect_to(root_path)
   # end
   private
+
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
