@@ -1,15 +1,24 @@
 
 
 <div class="container">
-<h1>Timeline</h1>
   <div>
-    <ul class="timeline">
-      <% @consultations.each do |consultation| %>
+    <ul class="timeline mt-5">
+      <% @data.each do |item| %>
         <li class="timeline-card">
-          <h2><%= consultation.category %></h2>
-          <p><%= consultation.description %></p>
-          <p class="timeline-date"><%= consultation.date %></p>
-          <br>
+          <details>
+            <summary>
+              <h2><%= item.name %></h2>
+              <p><%= item.description %></p>
+            </summary>
+              <p><%= item.notes %></p>
+              <% if item.is_a? Consultation %>
+                <%= link_to item.details, root_path %>
+              <% else %>
+                <p><%= item.details %></p>
+              <% end %>
+          </details>
+          <p class="timeline-date"><%= item.at.strftime('%e %b') %></p>
+          <p class="timeline-year"><%= item.at.strftime('%Y') %></p>
         </li>
       <% end %>
     </ul>

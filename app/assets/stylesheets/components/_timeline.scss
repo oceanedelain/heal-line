@@ -1,14 +1,16 @@
 .timeline {
-  margin-left: 50px;
+  margin-left: 45px;
   padding-left: 20px;
-  border-left: 2px solid black;
+  border-left: 2px solid rgba(0, 0, 0, 0.3);
 
   li.timeline-card {
     list-style: none;
-    background-color: white;
-    margin-bottom: 30px;
-    padding: 15px;
+    background-color:white;
+    margin-bottom: 20px;
+    padding: 15px 15px 2px 15px;
     position: relative;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
 
     &:before {
       content: "";
@@ -20,18 +22,38 @@
       left: -21px;
       top: 50%;
       transform: translate(-50%, -50%);
+      background-color: $heal-green;
+      border: 2px solid rgba(0, 0, 0, 0.3);
     }
 
     .timeline-date{
       position: absolute;
-      top: 0;
-      left: -70px;
+      top: 15px;
+      left: -75px;
+      font-size: 14px;
+    }
+
+    .timeline-year{
+      position: absolute;
+      top: 34px;
+      left: -65px;
+      font-size: 12px;
+    }
+
+    h2 {
+      font-size: 22px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+
+    details > summary {
+      list-style: none;
+    }
+
+    details > p {
+      transition-duration: 3s;
     }
   }
 }
-
-
-// element.style {
-    // height: 0; */
-    //  overflow: hidden; */
-// }
