@@ -1,15 +1,14 @@
 
 
 <div class="container">
-<h1>Timeline</h1>
   <div>
-    <ul class="timeline">
+    <ul class="timeline mt-5">
       <% @consultations.each do |consultation| %>
         <li class="timeline-card">
           <h2><%= consultation.category %></h2>
           <p><%= consultation.description %></p>
-          <p class="timeline-date"><%= consultation.date %></p>
-          <br>
+          <p class="timeline-date"><%= consultation.date.strftime('%M %b') %></p>
+          <p class="timeline-year"><%= consultation.date.strftime('%Y') %></p>
         </li>
       <% end %>
     </ul>
