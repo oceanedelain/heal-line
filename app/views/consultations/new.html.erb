@@ -1,0 +1,19 @@
+<div class="form-container">
+  <div class="row">
+    <div class="container py-5 col-4">
+      <div class="mb-3 bg-white">
+        <%= simple_form_for @consultation do |f| %>
+          <div class="flex">
+            <%= f.input :date, as: :date, class:'input-field' %>
+            <%= f.input :time, as: :time, class:'input-field' %>
+          </div>
+          <%= f.input :category, class:'input-field' %>
+          <%= f.input :description, class:'input-field' %>
+          <%= f.association :doctor, class:'input-field' %>
+          <%= f.input :notes, class:'input-field' %>
+          <%= f.submit "Ajouter ce rdv", class: "btn-orange" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

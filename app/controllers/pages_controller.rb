@@ -6,5 +6,6 @@ class PagesController < ApplicationController
   end
 
   def timeline
+    @consultations = Consultation.all
   end
 end

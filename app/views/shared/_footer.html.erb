@@ -1,5 +1,6 @@
 <div class="foot">
-  <div class="icon-menu">
+
+  <div class="icon-menu <%= "active" if controller.controller_name == 'pages' && controller.action_name == 'home' %>">
     <%= image_tag 'home.png' %>
     <p>Accueil</p>
   </div>
