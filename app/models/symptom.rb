@@ -4,7 +4,11 @@ class Symptom < ApplicationRecord
   has_many_attached :files
 
   def description
-    "Intensité #{intensity}"
+    text = "Intensité : #{intensity}/10 - Durée : #{duration} heure"
+    text + 's' if duration > 1
   end
 
+  def details
+    zone
+  end
 end

@@ -12,7 +12,6 @@
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 
-
     &:before {
       content: "";
       height: 20px;
@@ -48,11 +47,13 @@
     p {
       font-size: 14px;
     }
+
+    details > summary {
+      list-style: none;
+    }
+
+    details > p {
+      transition-duration: 3s;
+    }
   }
 }
-
-
-// element.style {
-    // height: 0; */
-    //  overflow: hidden; */
-// }

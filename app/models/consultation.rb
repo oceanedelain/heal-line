@@ -8,4 +8,8 @@ class Consultation < ApplicationRecord
     category
   end
 
+  def details
+    "Dr. #{doctor.first_name} #{doctor.last_name}"
+  end
+
 end
