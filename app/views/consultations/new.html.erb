@@ -3,7 +3,7 @@
     <div class="container py-5 col-4">
       <div class="mb-3 bg-white">
         <%= simple_form_for @consultation do |f| %>
-          <%= f.input :at, as: :string, :label => "Date et Heure", input_html: {class: "datepicker"} %>
+          <%= f.input :at, as: :string, :label => "Date et Heure", input_html: {class: "datepicker"}, placeholder: '...' %>
           <%= f.input :category, :label => "Catégorie", collection: Doctor.pluck(:specialty), prompt: '...' %>
           <%= f.input :description, placeholder: 'Vaccin, Contrôle, ...'   %>
           <%= f.association :doctor, :label => "Medecins", prompt: '...' %>
