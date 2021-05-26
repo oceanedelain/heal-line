@@ -21,9 +21,18 @@ class SymptomsController < ApplicationController
     end
   end
 
+  def edit
+    @symptom = Symptom.find(params[:id])
+  end
+
+  def update
+    @symptom.update(symptom_params)
+    redirect_to timeline_path
+  end
+
   private
 
   def symptom_params
-    params.require(:symptom).permit(:date, :name, :zone, :intensity, :notes, :duration, :user_id)
+    params.require(:symptom).permit(:at, :name, :zone, :intensity, :notes, :duration, :user_id)
   end
 end

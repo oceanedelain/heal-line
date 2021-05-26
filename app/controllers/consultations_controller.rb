@@ -21,9 +21,19 @@ class ConsultationsController < ApplicationController
     end
   end
 
+  def edit
+    @consultation = Consultation.find(params[:id])
+  end
+
+  def update
+    @consultation.update(consultation_params)
+    redirect_to timeline_path
+  end
+
+
   private
 
   def consultation_params
-    params.require(:consultation).permit(:date, :time, :category, :description, :notes, :doctor_id)
+    params.require(:consultation).permit(:at, :category, :description, :notes, :doctor_id)
   end
 end
