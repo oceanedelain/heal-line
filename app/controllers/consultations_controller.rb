@@ -23,10 +23,12 @@ class ConsultationsController < ApplicationController
 
   def edit
     @consultation = Consultation.find(params[:id])
+    authorize(@consultation)
   end
 
   def update
     @consultation.update(consultation_params)
+    authorize(@consultation)
     redirect_to timeline_path
   end
 
