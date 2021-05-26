@@ -3,12 +3,12 @@
 <div class="container">
   <div>
     <ul class="timeline mt-5">
-      <% @consultations.each do |consultation| %>
+      <% @data.each do |item| %>
         <li class="timeline-card">
-          <h2><%= consultation.category %></h2>
-          <p><%= consultation.description %></p>
-          <p class="timeline-date"><%= consultation.date.strftime('%M %b') %></p>
-          <p class="timeline-year"><%= consultation.date.strftime('%Y') %></p>
+          <h2><%= item.name %></h2>
+          <p><%= item.description %></p>
+          <p class="timeline-date"><%= item.date.strftime('%M %b') %></p>
+          <p class="timeline-year"><%= item.date.strftime('%Y') %></p>
         </li>
       <% end %>
     </ul>
