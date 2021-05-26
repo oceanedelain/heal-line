@@ -11,6 +11,7 @@ puts "Cleaning database"
 
 Consultation.destroy_all
 Doctor.destroy_all
+Symptom.destroy_all
 User.destroy_all
 
 puts "Database cleaned, now create doctors"
@@ -32,39 +33,61 @@ jean.save!
 
 puts "User created, now create consultations"
 
-consultation = Consultation.new(description: "Rendez-vous avec le Docteur Cohen pour des semelles orthopédiques", category: "Podologie", date: Date.new(2021,05,20), notes: "Apporter mes radios")
+consultation = Consultation.new(description: "Semelles orthopédiques", category: "Podologie", at: DateTime.parse("05/05/2021 11:30"), notes: "Apporter les radios de mes pieds et genous")
 consultation.user = jean
 consultation.doctor = cohen
 file = URI.open('https://res.cloudinary.com/rachelnas/image/upload/v1621945805/radio_pied_smvxc4.jpg')
 consultation.files.attach(io: file, filename: 'Radio-pied.jpg', content_type: 'image/jpg')
 consultation.save!
 
-consultation = Consultation.new(description: "Renouvellement ordonnance lentilles", category: "Ophtalmologie", date: Date.new(2021,05,10), notes: "Ne pas porter de lentilles pour le rendez-vous")
+consultation = Consultation.new(description: "Ordonnance lentilles", category: "Ophtalmologie", at: DateTime.parse("10/05/2021 10:15"), notes: "Ne pas porter de lentilles pour le rendez-vous")
 consultation.user = jean
 consultation.doctor = chabot
 file = URI.open('https://res.cloudinary.com/rachelnas/image/upload/v1621945897/ordonnance_lentille_slz91a.png')
 consultation.files.attach(io: file, filename: 'Lentilles.png', content_type: 'image/png')
 consultation.save!
 
-consultation = Consultation.new(description: "Retirer appareil dentaire", category: "Dentiste", date: Date.new(2021,05,31), notes: "Se brosser les dents avant le rendez-vous")
+consultation = Consultation.new(description: "Appareil dentaire", category: "Dentiste", at: DateTime.parse("31/05/2021 18:30"), notes: "Se brosser les dents avant le rendez-vous")
 consultation.user = jean
 consultation.doctor = vincent
 file = URI.open('https://res.cloudinary.com/rachelnas/raw/upload/v1621946795/ordonnance_word_safb5m.docx')
 consultation.files.attach(io: file, filename: 'Ordonnance.docx', content_type: 'doc/docx')
 consultation.save!
 
-consultation = Consultation.new(description: "Renouveler ordonnance allergies", category: "Généraliste", date: Date.new(2021,06,10), notes: "Apporter mes résultats d'analyses")
+consultation = Consultation.new(description: "Allergies", category: "Généraliste", at: DateTime.parse("10/06/2021 09:00"), notes: "Apporter mes résultats d'analyses")
 consultation.user = jean
 consultation.doctor = durand
 file = URI.open('https://res.cloudinary.com/di1e8ocfv/image/upload/v1621938332/Ordonnance%20medicament.jpg')
 consultation.files.attach(io: file, filename: 'Medicament.jpg', content_type: 'image/jpg')
 consultation.save!
 
-consultation = Consultation.new(description: "Rendez-vous de suivi", category: "Gastro-entérologie", date: Date.new(2021,06,18))
+consultation = Consultation.new(description: "Rendez-vous de suivi", category: "Gastro-entérologie", at: DateTime.parse("18/06/2021 19:00"))
 consultation.user = jean
 consultation.doctor = durand
 file = URI.open('https://res.cloudinary.com/rachelnas/raw/upload/v1621946795/ordonnance_word_safb5m.docx')
 consultation.files.attach(io: file, filename: 'Ordonnance.docx', content_type: 'doc/docx')
 consultation.save!
+
+puts "Consultations created, now create symptoms"
+
+symptom = Symptom.new(at: DateTime.parse("10/04/2021 07:00"), name: "Migraine", zone: "Tête", notes: "Sensation de marteau qui tape dans ma tête et je ne supporte ni les écrans, ni la lumière", intensity: 5, duration: 3)
+symptom.user = jean
+symptom.save!
+
+symptom = Symptom.new(at: DateTime.parse("05/05/2021 10:12"), name: "Migraine", zone: "Tête", notes: "Des nausées et des vertiges se sont ajoutés aux sensations", intensity: 5, duration: 4)
+symptom.user = jean
+symptom.save!
+
+symptom = Symptom.new(at: DateTime.parse("15/05/2021 19:00"), name: "Ballonnements", zone: "Ventre", notes: "Ventre gonflé et beaucoup de gaz. Mal à digérer", intensity: 4, duration: 6)
+symptom.user = jean
+symptom.save!
+
+symptom = Symptom.new(at: DateTime.parse("21/05/2021 03:35"), name: "Courbatures", zone: "Bras", notes: "Douleurs à chaque effort", intensity: 3, duration: 10)
+symptom.user = jean
+symptom.save!
+
+symptom = Symptom.new(at: DateTime.parse("25/05/2021 15:15"), name: "Démangeaisons", zone: "Yeux", notes: "Oeil droit qui gratte et qui pleure", intensity: 3, duration: 7)
+symptom.user = jean
+symptom.save!
 
 puts "All well created ! youpi !"
