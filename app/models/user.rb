@@ -9,4 +9,9 @@ class User < ApplicationRecord
   has_many :symptoms
 
   has_one_attached :avatar
+
+  def next_consultation
+    consultations.upcoming.order(:at).first
+  end
+
 end

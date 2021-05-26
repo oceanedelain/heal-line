@@ -4,6 +4,9 @@ class Consultation < ApplicationRecord
 
   has_many_attached :files
 
+  scope :upcoming, -> { where('at > ?', Date.today) }
+  scope :past, -> { where('at < ?', Date.today) }
+
   def name
     category
   end
