@@ -6,6 +6,6 @@ class PagesController < ApplicationController
   end
 
   def timeline
-    @data = [Consultation.all, Symptom.all].flatten.sort_by { |item| item.date }
+    @data = [Consultation.all, Symptom.all].flatten.sort_by { |item| item.at }
   end
 end
