@@ -4,9 +4,9 @@
       <div class="mb-3 bg-white">
         <%= simple_form_for @consultation do |f| %>
           <%= f.input :at, as: :datetime, :label => "Date et Heure" %>
-          <%= f.input :category, :label => "Catégorie", collection: Doctor.pluck(:specialty) %>
+          <%= f.input :category, :label => "Catégorie", collection: Doctor.pluck(:specialty), prompt: '...' %>
           <%= f.input :description, placeholder: 'Vaccin, Contrôle, ...'   %>
-          <%= f.association :doctor, :label => "Medecins" %>
+          <%= f.association :doctor, :label => "Medecins", prompt: '...' %>
           <%= f.input :notes, placeholder: '...' %>
           <%= f.submit "Enregistrement", class: "btn btn-success" %>
 

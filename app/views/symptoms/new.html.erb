@@ -7,7 +7,7 @@
           <%= f.input :name, :label => "Symptôme", placeholder: 'Migraine, Fièvre, Douleurs, ...' %>
           <%= f.input :zone, placeholder: 'Où' %>
           <%= f.input :intensity, label: "Intensité", prompt: '1 à 10', :collection => [1,2,3,4,5,6,7,8,9,10]%>
-          <%= f.input :duration, :label => "Durée", prompt: 'en heures', :collection => [1,2,3,4,5,6,12,24] %>
+          <%= f.input :duration, :label => "Durée (en heures)", prompt: '...', :collection => [1,2,3,4,5,6,12,24] %>
           <%= f.input :notes, placeholder: '...' %>
           <%= f.submit "Enregistrement", class: "btn btn-success" %>
         <% end %>
