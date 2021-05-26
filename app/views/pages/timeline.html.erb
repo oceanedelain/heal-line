@@ -7,8 +7,8 @@
         <li class="timeline-card">
           <h2><%= item.name %></h2>
           <p><%= item.description %></p>
-          <p class="timeline-date"><%= item.date.strftime('%M %b') %></p>
-          <p class="timeline-year"><%= item.date.strftime('%Y') %></p>
+          <p class="timeline-date"><%= item.at.strftime('%M %b') %></p>
+          <p class="timeline-year"><%= item.at.strftime('%Y') %></p>
         </li>
       <% end %>
     </ul>

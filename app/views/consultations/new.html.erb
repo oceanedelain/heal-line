@@ -3,8 +3,7 @@
     <div class="container py-5 col-4">
       <div class="mb-3 bg-white">
         <%= simple_form_for @consultation do |f| %>
-          <%= f.input :date, as: :date %>
-          <%= f.input :time, as: :time, :label => "Heure" %>
+          <%= f.input :at, as: :datetime, :label => "Date et Heure" %>
           <%= f.input :category, :label => "Catégorie", collection: Doctor.pluck(:specialty) %>
           <%= f.input :description, placeholder: 'Vaccin, Contrôle, ...'   %>
           <%= f.association :doctor, :label => "Medecins" %>
