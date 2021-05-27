@@ -1,15 +1,21 @@
 <div class="form-container">
   <div class="row">
     <div class="container py-5 col-9">
-      <div class="mb-3 bg-white">
+      <div class="mb-3">
         <%= simple_form_for @consultation do |f| %>
           <%= f.input :at, as: :string, :label => "Date et Heure", input_html: {class: "datepicker"}, placeholder: '...' %>
-          <%= f.input :category, :label => "Catégorie", collection: Doctor.pluck(:specialty), prompt: '...' %>
-          <%= f.input :description, placeholder: 'Vaccin, Contrôle, ...'   %>
-          <%= f.association :doctor, :label => "Medecins", prompt: '...' %>
+          <div class="form-flex">
+            <%= f.input :category, :label => "Catégorie", collection: Doctor.pluck(:specialty), prompt: '...' %>
+            <%= f.input :description, placeholder: 'Vaccin, Contrôle, ...'   %>
+          </div>
+          <div id="input-doctor">
+            <%= f.association :doctor, :label => "Medecins", prompt: '...' %>
+          </div>
+          <div class="input-notes">
           <%= f.input :notes, placeholder: '...' %>
-          <%= f.submit "Enregistrement", class: "btn btn-success" %>
-
+          <div class="btn-validate">
+            <%= f.submit "Ajouter ce RDV", class: "btn btn-orange" %>
+          </div>
         <% end %>
       </div>
     </div>
