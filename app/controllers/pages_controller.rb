@@ -9,4 +9,8 @@ class PagesController < ApplicationController
   def timeline
     @data = [Consultation.all, Symptom.all].flatten.sort_by { |item| item.at }
   end
+
+  def profile
+    @doctors = current_user.doctors
+  end
 end
