@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :consultations, dependent: :destroy
   has_many :doctors, through: :consultations
-  has_many :symptoms
+  has_many :symptoms, dependent: :destroy
 
   has_one_attached :avatar
 

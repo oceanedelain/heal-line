@@ -6,19 +6,30 @@
   }
 }
 
+.top-btn {
+  display: flex;
+  justify-content: space-evenly;
+  > div {
+    width: 45%;
+  }
+}
+
 .form-control {
     border-radius: 10px;
 }
 
 #new_consultation {
-  margin-top: 130px;
+  margin-top: 55px;
 }
 
 #new_symptom {
-  margin-top: 130px;
+  margin-top: 55px;
 }
 
-.form-intensity {
-  margin-top: 12px;
+.symptom_intensity{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
+
 

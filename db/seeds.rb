@@ -22,7 +22,7 @@ chabot = Doctor.create!(first_name: "Loana", last_name: "Chabot", specialty: "Op
 vincent = Doctor.create!(first_name: "Nathalie", last_name: "Vincent", specialty: "Dentiste", phone_number: "0647386574", address: "22 Square Alboni, 75016 Paris", email: "nathalie.vincent@gmail.com")
 petit = Doctor.create!(first_name: "David", last_name: "Petit", specialty: "Gynécologue", phone_number: "0646374954", address: "65 Rue d'Hautpoul, 75019 Paris", email: "david.az@gmail.com")
 nour = Doctor.create!(first_name: "Henri", last_name: "Nour", specialty: "Gastro-entérologue", phone_number: "0147384675", address: "7 Rue Bergère, 75009 Paris", email: "henri.nour@gmail.com")
-lucas = Doctor.create!(first_name: "Anne", last_name: "Lucas", specialty: "Dermatologue", phone_number: "0147384675", address: "7 Rue Bergère, 75009 Paris", email: "henri.nour@gmail.com")
+lucas = Doctor.create!(first_name: "Anne", last_name: "Lucas", specialty: "Dermatologue", phone_number: "0147384675", address: "7 Rue Bergère, 75009 Paris", email: "anne.lucas@gmail.com")
 
 puts "Doctors created, now create user"
 
