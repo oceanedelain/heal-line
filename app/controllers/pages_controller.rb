@@ -32,4 +32,8 @@ class PagesController < ApplicationController
     #   @data = PgSearch.multisearch(params[:query]).map(&:searchable).sort_by { |item| item.at }
     # end
   end
+
+  def profile
+    @doctors = current_user.doctors
+  end
 end
