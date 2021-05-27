@@ -2,6 +2,8 @@
   "name": "heal-line",
   "private": true,
   "dependencies": {
+    "@fullcalendar/core": "^5.7.0",
+    "@fullcalendar/daygrid": "^5.7.0",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",

@@ -5,24 +5,24 @@
     <p>Accueil</p>
   </div>
 
-  <div class="icon-menu">
+  <div class="icon-menu <%= "active" if controller.controller_name == 'pages' && controller.action_name == 'profile' %>">
     <%= image_tag 'user.png' %>
     <p>Profil</p>
   </div>
-
+<%#
   <div class="icon-menu">
     <%= image_tag 'rdv.png' %>
-    <p>Rdv</p>
-  </div>
+    <%# <p>Rdv</p> %>
+  <%# </div> %>
 
   <%# <div class="icon-menu"> %>
     <%#= image_tag 'agenda.png' %>
     <%# <p>Agenda</p>
   </div> %>
 
-  <div class="icon-menu">
-    <%= image_tag 'symptome.png' %>
-    <p>Symptômes</p>
+  <div class="icon-menu <%= "active" if controller.controller_name == 'pages' && controller.action_name == 'timeline' %>">
+    <%= image_tag 'symptome.png', id:"heart" %>
+    <p class="mt-1">Heal Line</p>
   </div>
 
   <div class="icon-menu">

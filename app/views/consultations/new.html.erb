@@ -2,24 +2,28 @@
   <div class="row">
     <div class="container py-5 col-9">
       <div class="mb-3">
-        <%= simple_form_for @consultation do |f| %>
-          <div class="div-date">
-            <%= f.input :at, as: :string, :label => "Date et Heure", input_html: {class: "datepicker"}, placeholder: '...' %>
-          </div>
-          <div class="form-flex">
-            <%= f.association :doctor, :label => "Medecins", prompt: '...' %>
-            <%= f.input :category, :label => "Catégorie", collection: Doctor.pluck(:specialty), prompt: '...' %>
-          </div>
-          <div id="input-description">
-            <%= f.input :description, placeholder: 'Vaccin, Contrôle, ...'   %>
-          </div>
-          <div class="input-notes">
-          <%= f.input :notes, placeholder: '...' %>
-          <div class="btn-validate">
-            <%= f.submit "Ajouter ce RDV", class: "btn btn-orange" %>
-          </div>
-        <% end %>
-      </div>
+        <div class="top-btn">
+          <%= link_to "Consultation", new_consultation_path(Consultation.new), class: "btn btn-orange" %>
+          <%= link_to "Symptome", new_symptom_path(Symptom.new), class: "btn btn-orange" %>
+        </div>
+            <%= simple_form_for @consultation do |f| %>
+              <div class="div-date">
+                <%= f.input :at, as: :string, :label => "Date et Heure", input_html: {class: "datepicker"}, placeholder: '...' %>
+              </div>
+              <div class="form-flex">
+                <%= f.association :doctor, :label => "Medecins", prompt: '...' %>
+                <%= f.input :category, :label => "Catégorie", collection: Doctor.pluck(:specialty), prompt: '...' %>
+              </div>
+              <div id="input-description">
+                <%= f.input :description, placeholder: 'Vaccin, Contrôle, ...'   %>
+              </div>
+              <div class="input-notes">
+              <%= f.input :notes, placeholder: '...' %>
+              <div class="btn-validate">
+                <%= f.submit "Ajouter ce RDV", class: "btn btn-orange" %>
+              </div>
+          <% end %>
+        </div>
     </div>
   </div>
 </div>
