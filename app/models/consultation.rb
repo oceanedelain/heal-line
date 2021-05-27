@@ -7,6 +7,9 @@ class Consultation < ApplicationRecord
   scope :upcoming, -> { where('at > ?', Date.today) }
   scope :past, -> { where('at < ?', Date.today) }
 
+  include PgSearch::Model
+  multisearchable against: [:notes, :description, :category]
+
   def name
     category
   end

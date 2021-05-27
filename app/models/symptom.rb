@@ -3,6 +3,9 @@ class Symptom < ApplicationRecord
 
   has_many_attached :files
 
+  include PgSearch::Model
+  multisearchable against: [:name, :zone, :notes]
+
   def description
     text = "Intensité : #{intensity}/10 - Durée : #{duration} heure"
     text + 's' if duration > 1
