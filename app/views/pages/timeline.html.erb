@@ -2,9 +2,14 @@
 
 <div class="container">
   <div>
-    <ul class="timeline mt-5">
+    <ul class="timeline mt-4">
+      <div class="container my-3 ml-2">
+      <%= link_to "Timeline", timeline_path(choice: :all), class:"btn-orange" %>
+      <%= link_to "Rendez-vous", timeline_path(choice: :consultation), class:"btn-orange" %>
+      <%= link_to "Symptômes", timeline_path(choice: :symptom), class:"btn-orange" %>
+      </div>
       <% @data.each do |item| %>
-        <li class="timeline-card">
+        <li class="timeline-card <%= data_type(item) %>">
             <div class="summary">
               <h2><%= item.name %></h2>
               <p><%= item.description %></p>

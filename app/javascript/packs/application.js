@@ -47,11 +47,12 @@ ActiveStorage.start()
 // External imports
 import "bootstrap";
 import { initFlatpickr } from "../plugins/flatpickr";
+import { toggleTimelineCard } from "../components/timeline"
+
 
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-import { toggleTimelineCard } from '../components/timeline';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
