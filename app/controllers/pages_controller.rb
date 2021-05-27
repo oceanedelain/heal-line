@@ -8,5 +8,11 @@ class PagesController < ApplicationController
 
   def timeline
     @data = [Consultation.all, Symptom.all].flatten.sort_by { |item| item.at }
+
+    if params.dig(:choice) == 'symptom'
+      @data = @data.select { |item| item.is_a? Symptom }
+    elsif params.dig(:choice) == 'consultation'
+      @data = @data.select { |item| item.is_a? Consultation }
+    end
   end
 end
