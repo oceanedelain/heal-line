@@ -3,6 +3,31 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+//calendar
+
+import Moment from "momentjs-rails"
+import Fullcalendar from "fullcalendar-rails"
+
+Moment.start()
+Fullcalendar.start()
+
+
+function eventCalendar() {
+  return $('#calendar').fullCalendar({});
+};
+function clearCalendar() {
+  $('#calendar').fullCalendar('delete');
+  $('#calendar').html('');
+};
+
+
+$(document).on('turbolinks:load', function () {
+  eventCalendar();
+});
+$(document).on('turbolinks:before-cache', clearCalendar);
+
+////////////////////
+
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
@@ -34,3 +59,4 @@ document.addEventListener('turbolinks:load', () => {
   initFlatpickr();
   toggleTimelineCard();
 });
+
