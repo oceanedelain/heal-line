@@ -14,7 +14,7 @@ class SymptomPolicy < ApplicationPolicy
   end
 
   def edit?
-    return true
+    return create?
   end
 
   def update?
