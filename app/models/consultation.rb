@@ -15,4 +15,9 @@ class Consultation < ApplicationRecord
     "Dr. #{doctor.first_name} #{doctor.last_name}"
   end
 
+  def soon?
+    self.at < Date.today + 7
+  end
+
+
 end
