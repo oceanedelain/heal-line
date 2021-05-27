@@ -26,7 +26,10 @@
   margin-top: 55px;
 }
 
-.form-intensity {
-  margin-top: 12px;
+.symptom_intensity{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
+
 
