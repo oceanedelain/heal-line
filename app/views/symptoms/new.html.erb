@@ -2,8 +2,8 @@
   <div class="row">
     <div class="container py-5 col-9">
         <div class="top-btn">
-          <button class="btn btn-orange">Consultation</button>
-          <button class="btn btn-orange">Symptôme</button>
+          <%= link_to "Consultation", new_consultation_path(Consultation.new), class: "btn btn-orange" %>
+          <%= link_to "Symptome", new_symptom_path(Symptom.new), class: "btn btn-orange" %>
         </div>
         <div class="mb-3">
           <%= simple_form_for @symptom do |f| %>
