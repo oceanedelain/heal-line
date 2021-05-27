@@ -2,14 +2,20 @@
   <div class="row">
     <div class="container py-5 col-9">
       <div class="mb-3">
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label>
         <%= simple_form_for @consultation do |f| %>
-          <%= f.input :at, as: :string, :label => "Date et Heure", input_html: {class: "datepicker"}, placeholder: '...' %>
-          <div class="form-flex">
-            <%= f.input :category, :label => "Catégorie", collection: Doctor.pluck(:specialty), prompt: '...' %>
-            <%= f.input :description, placeholder: 'Vaccin, Contrôle, ...'   %>
+          <div class="div-date">
+            <%= f.input :at, as: :string, :label => "Date et Heure", input_html: {class: "datepicker"}, placeholder: '...' %>
           </div>
-          <div id="input-doctor">
+          <div class="form-flex">
             <%= f.association :doctor, :label => "Medecins", prompt: '...' %>
+            <%= f.input :category, :label => "Catégorie", collection: Doctor.pluck(:specialty), prompt: '...' %>
+          </div>
+          <div id="input-description">
+            <%= f.input :description, placeholder: 'Vaccin, Contrôle, ...'   %>
           </div>
           <div class="input-notes">
           <%= f.input :notes, placeholder: '...' %>
