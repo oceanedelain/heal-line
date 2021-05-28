@@ -13,9 +13,9 @@
     <% end %>
   </div>
 
-  <% if current_user.next_consultation.soon? %>
+  <% if current_user && current_user.next_consultation.soon? %>
     <div class="cercle-container flex column <%= circle_color %>">
-      <h3 class="mt-1"><%= @consultation.category%></h3>
+      <h3 class="mt-1"><%= @consultation.category %></h3>
       <h5 class="black-p"><%= @consultation.at.strftime("%e %b, %l:%M")%></h5>
       <div class="info-rdv">
         <div class="flex">

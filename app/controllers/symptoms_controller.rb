@@ -15,7 +15,7 @@ class SymptomsController < ApplicationController
     @symptom.user = current_user
 
     if @symptom.save
-      redirect_to timeline_path
+      redirect_to timeline_path anchor: "symptom_#{@symptom.id}"
     else
       render :new
     end
