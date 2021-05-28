@@ -10,7 +10,8 @@ module ApplicationHelper
       "Mangez des fruits et légumes de saison",
       "Prenez du temps pour vous détendre",
       "Evitez de consommer régulièrement de l'alcool",
-      "Evitez les écrans avant de vous coucher"
+      "Evitez les écrans avant de vous coucher",
+      "Faites-vous aider pour arrêter de fumer"
     ].sample
   end
 
@@ -28,4 +29,11 @@ module ApplicationHelper
   def active_class(name)
     return 'active' if name == action_name && ['pages'].include?(controller_name)
   end
+
+  def btn_active_class(name)
+    return 'btn-active' if params[:choice] == name
+  end
 end
+
+
+#{btn_active_class(params[:choice])}
