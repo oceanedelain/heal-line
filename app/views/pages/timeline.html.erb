@@ -1,4 +1,4 @@
-<div class="container" data-controller="timeline" data-focus="<%= params[:focus] %>">
+<div class="container" data-controller="timeline" data-timeline-focus-value="<%= params[:focus] %>">
   <div>
     <ul class="timeline mt-4">
 
@@ -26,7 +26,7 @@
 
       <% @data.each do |item| %>
 
-        <li class="timeline-card <%= data_type(item) %>">
+        <li class="timeline-card <%= data_type(item) %>" id="<%= dom_id(item) %>">
             <div class="summary">
               <h2><%= item.name %></h2>
               <p><%= item.description %></p>
