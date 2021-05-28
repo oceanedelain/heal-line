@@ -15,7 +15,7 @@ class ConsultationsController < ApplicationController
     @consultation.user = current_user
 
     if @consultation.save
-      redirect_to timeline_path
+      redirect_to timeline_path anchor: "consultation_#{@consultation.id}"
     else
       render :new
     end
