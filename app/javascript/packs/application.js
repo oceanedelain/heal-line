@@ -24,7 +24,7 @@ ActiveStorage.start()
 import "bootstrap";
 import { initFlatpickr } from "../plugins/flatpickr";
 import { toggleTimelineCard } from "../components/timeline";
-import initBoldCollapse from "../plugins/bold_collapse";
+import { initBoldCollapse } from "../plugins/bold_collapse";
 
 
 // Internal imports, e.g:
