@@ -1,14 +1,9 @@
 <div class="container" data-controller="timeline" data-focus="<%= params[:focus] %>">
   <div>
     <ul class="timeline mt-4">
-      <div class="container my-3 ml-2">
-      <%= link_to "Timeline", timeline_path(choice: :all, query: params[:query]), class:"btn-timeline" %>
-      <%= link_to "Rendez-vous", timeline_path(choice: :consultation, query: params[:query]), class:"btn-timeline" %>
-      <%= link_to "Symptômes", timeline_path(choice: :symptom, query: params[:query]), class:"btn-timeline" %>
-      </div>
 
-      <div class="flex">
-        <%= form_tag timeline_path, class:"flex", method: :get do %>
+      <div class="">
+        <%= form_tag timeline_path, class:"flex position-relative pt-2", method: :get do %>
           <%= text_field_tag :choice,
             params[:choice],
             class: "d-none" %>
@@ -20,6 +15,14 @@
           <%= submit_tag "", class: "btn-orange btn-search" %>
         <% end %>
       </div>
+
+      <div class="container my-2 flex justify-content-between p-0">
+      <%#= link_to "Timeline", timeline_path(choice: :all, query: params[:query]), class:"btn-timeline #{btn_active_class("all")}" %>
+      <%= link_to "Consultation", timeline_path(choice: params[:choice] == "consultation" ? :all : :consultation, query: params[:query]), class:"btn-timeline #{btn_active_class("consultation")}" %>
+      <%= link_to "Symptômes", timeline_path(choice: params[:choice] == "symptom" ? :all : :symptom, query: params[:query]), class:"pl-3 pr-3 btn-timeline #{btn_active_class("symptom")}" %>
+      </div>
+
+
 
       <% @data.each do |item| %>
 
