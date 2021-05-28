@@ -4,7 +4,7 @@
       <div class="mb-3">
         <div class="top-btn">
           <%= link_to "Consultation", new_consultation_path(Consultation.new), class: "btn btn-orange" %>
-          <%= link_to "Symptome", new_symptom_path(Symptom.new), class: "btn btn-orange" %>
+          <%= link_to "Symptome", new_symptom_path(Symptom.new), class: "btn-choice" %>
         </div>
             <%= simple_form_for @consultation do |f| %>
               <div class="div-date">

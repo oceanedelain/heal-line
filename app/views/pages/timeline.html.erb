@@ -7,22 +7,23 @@
       <%= link_to "Symptômes", timeline_path(choice: :symptom, query: params[:query]), class:"btn-timeline" %>
       </div>
 
-      <div>
-        <%= form_tag timeline_path, method: :get do %>
+      <div class="flex">
+        <%= form_tag timeline_path, class:"flex", method: :get do %>
           <%= text_field_tag :choice,
             params[:choice],
             class: "d-none" %>
           <%= text_field_tag :query,
             params[:query],
+            id: 'input-search',
             class: "form-control",
-            placeholder: "Find a symptom" %>
-          <%= submit_tag "Search", class: "btn btn-primary" %>
+            placeholder: "Rechercher..." %>
+          <%= submit_tag "", class: "btn-orange btn-search" %>
         <% end %>
       </div>
 
       <% @data.each do |item| %>
 
-        <li class="timeline-card <%= data_type(item) %>" id="<%= dom_id(item) %>">
+        <li class="timeline-card <%= data_type(item) %>">
             <div class="summary">
               <h2><%= item.name %></h2>
               <p><%= item.description %></p>

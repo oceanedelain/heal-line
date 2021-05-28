@@ -1,35 +1,36 @@
 <div class="foot">
 
-  <div class="icon-menu <%= "active" if controller.controller_name == 'pages' && controller.action_name == 'home' %>">
-    <%= image_tag 'home.png' %>
-    <p>Accueil</p>
-  </div>
+    <%= link_to root_path do %>
+      <div class="icon-menu <%= active_class("home") %>">
+        <%= image_tag 'home.png' %>
+        <p>Accueil</p>
+      </div>
+    <% end %>
 
-  <div class="icon-menu <%= "active" if controller.controller_name == 'pages' && controller.action_name == 'profile' %>">
-    <%= image_tag 'user.png' %>
-    <p>Profil</p>
-  </div>
-<%#
-  <div class="icon-menu">
-    <%= image_tag 'rdv.png' %>
-    <%# <p>Rdv</p> %>
-  <%# </div> %>
+    <%= link_to profile_path do %>
+      <div class="icon-menu <%= active_class("profile") %>">
+        <%= image_tag 'user.png' %>
+        <p>Profil</p>
+      </div>
+    <% end %>
 
-  <%# <div class="icon-menu"> %>
-    <%#= image_tag 'agenda.png' %>
-    <%# <p>Agenda</p>
-  </div> %>
 
-  <div class="icon-menu <%= "active" if controller.controller_name == 'pages' && controller.action_name == 'timeline' %>">
-    <%= image_tag 'symptome.png', id:"heart" %>
-    <p class="mt-1">Heal Line</p>
-  </div>
+    <%= link_to timeline_path do %>
+      <div class="icon-menu <%= active_class("timeline") %>">
+          <%= image_tag 'symptome.png', id:"heart" %>
+          <p class="mt-1">Heal Line</p>
+      </div>
+    <% end %>
+
 
   <div class="icon-menu">
-    <%= image_tag 'document.png' %>
-    <p>Docs</p>
+
+      <%= image_tag 'document.png' %>
+      <p>Docs</p>
+
   </div>
 
 
 </div>
+
 

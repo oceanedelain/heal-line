@@ -18,7 +18,38 @@
   border-radius: 50px;
   box-shadow: 0px 6px 9px rgba(0, 0, 0, 0.2);
   color: white;
+  border: solid $heal-orange 1px;
 }
+
+.btn-choice{
+  background: white;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 19px;
+  padding: 7px 17px 7px 17px;
+  border-radius: 50px;
+  box-shadow: 0px 6px 9px rgba(0, 0, 0, 0.15);
+  color: $heal-blue;
+  border: solid white 1px;
+}
+
+.btn-search{
+  font-size: 13px;
+  background-image: image-url("search.png");
+  background-size: cover;
+  position: absolute;
+  left: 53%;
+}
+
+#input-search{
+  border-radius: 40px;
+  height: 37px;
+  width: 150px;
+  position: relative;
+}
+
 
 .btn-timeline {
   background: $heal-orange;
@@ -51,3 +82,5 @@ a {
 .top-btn{
   margin-top: 35px;
 }
+
+

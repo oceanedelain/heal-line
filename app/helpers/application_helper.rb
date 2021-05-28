@@ -15,15 +15,17 @@ module ApplicationHelper
   end
 
   def circle_color
-    # @consultations.any? ? 'circle-orange' : 'circle-blue'
     week = (Date.today..Date.today + 7).to_a
     return 'circle-orange' if week.include?(current_user.next_consultation.at.to_date) if current_user
+    return 'circle-blue'
   end
-
 
   def data_type(item)
     # @data.class.to_s.downcase
     item.is_a?(Symptom) ? 'symptom' : 'consultation'
   end
 
+  def active_class(name)
+    return 'active' if name == action_name && ['pages'].include?(controller_name)
+  end
 end

@@ -28,8 +28,11 @@
           <i class="far fa-lightbulb mr-3"></i><p>  <%= @consultation.notes %></p>
         </div>
       </div>
-      <%= image_tag 'plus.png', class:'plus-btn' %>
+      <%= link_to new_consultation_path do %>
+        <%= image_tag 'plus.png', class:'plus-btn' %>
+      <% end %>
     </div>
+
 
   <% else %>
     <div class="cercle-container flex column <%= circle_color %>">
