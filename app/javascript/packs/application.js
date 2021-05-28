@@ -37,3 +37,5 @@ document.addEventListener('turbolinks:load', () => {
   toggleTimelineCard();
 });
 
+
+import "controllers"
