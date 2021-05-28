@@ -1,6 +1,6 @@
 <div class="container">
   <div class="infos">
-    <h3>Mes infos</h3>
+    <h3 class="blue-title">Mes infos</h3>
     <ul>
       <li><p>Numéro SSN : <%= current_user.ssn %></p></li>
       <li><p>Taille : <%= current_user.height %></p></li>
@@ -11,7 +11,7 @@
     </ul>
   </div>
 
-    <h3>Mes docteurs</h3>
+    <h3 class="blue-title">Mes docteurs</h3>
     <div id="accordion">
       <% @doctors.each do |doctor| %>
         <div class="card">
@@ -33,5 +33,5 @@
         </div>
       <% end %>
     </div>
-  </div> 
+  </div>
 </div>
