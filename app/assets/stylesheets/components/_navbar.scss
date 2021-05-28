@@ -11,7 +11,7 @@
 
 .logo{
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  background: url(jean.jpg);
+  background: asset-url('jean.jpg');
   border: 2px solid $heal-blue;
   box-sizing: border-box;
   height: 90px;
