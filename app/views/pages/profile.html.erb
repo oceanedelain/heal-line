@@ -14,15 +14,15 @@
     <h3>Mes docteurs</h3>
     <div id="accordion">
       <% @doctors.each do |doctor| %>
-        <div class="card">
-          <div class="card-header" id="headingOne">
+        <div class="doctor">
+          <div id="headingOne">
             <h5 class="mb-0">
-              <button class="btn btn-link" data-toggle="collapse" data-target="#doctor-<%= doctor.id %>" aria-expanded="true" aria-controls="doctor-<%= doctor.id %>">
-                Dr. <%= doctor.last_name %> <%= doctor.first_name %> <%= doctor.specialty %>
-              </button>
+              <div data-toggle="collapse" data-target="#doctor-<%= doctor.id %>" aria-expanded="true" aria-controls="doctor-<%= doctor.id %>">
+                Dr. <%= doctor.last_name %> <%= doctor.first_name %> <span class="text-secondary"><%= doctor.specialty %></span>
+              </div>
             </h5>
           </div>
-          <div id="doctor-<%= doctor.id %>" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+          <div id="doctor-<%= doctor.id %>" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
             <div class="card-body">
               Spécialité : <%= doctor.specialty %>
               Adresse : <%= doctor.address %>

@@ -23,8 +23,8 @@ ActiveStorage.start()
 // External imports
 import "bootstrap";
 import { initFlatpickr } from "../plugins/flatpickr";
-import { toggleTimelineCard } from "../components/timeline"
-
+import { toggleTimelineCard } from "../components/timeline";
+import initBoldCollapse from "../plugins/bold_collapse";
 
 
 // Internal imports, e.g:
@@ -35,5 +35,6 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initFlatpickr();
   toggleTimelineCard();
+  initBoldCollapse();
 });
 
