@@ -36,33 +36,43 @@
 }
 
 .btn-search{
-  font-size: 13px;
   background-image: image-url("search.png");
   background-size: cover;
   position: absolute;
-  left: 53%;
+  height: 50px;
+  width: 50px;
+  right: 0;
 }
 
 #input-search{
   border-radius: 40px;
-  height: 37px;
-  width: 150px;
+  height: 50px;
   position: relative;
 }
 
 
 .btn-timeline {
-  background: $heal-orange;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 19px;
-  padding: 7px;
+  background-color: white ;
   border-radius: 50px;
   box-shadow: 0px 6px 9px rgba(0, 0, 0, 0.2);
-  color: white;
+  color: $heal-blue;
+  font-size: 16px;
+  padding: 7px 19px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+
+  &.btn-active{
+    background-color: $heal-orange !important;
+    color: white;
+  }
+
+
 }
+
+
 
 a {
   text-decoration: none;
