@@ -82,3 +82,21 @@
   box-shadow: none !important;
   background: $heal-fake-white;
 }
+
+.supprimer{
+  display: flex !important;
+  justify-content: flex-end !important;
+  font-size: 12px !important;
+    a {
+      color: grey;
+      text-decoration: none;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  i {
+    font-size: 16px !important;
+    color: grey;
+    margin-left: 4px ;
+  }
+}
