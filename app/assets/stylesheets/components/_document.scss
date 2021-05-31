@@ -1,0 +1,80 @@
+.document {
+  margin-left: 45px;
+  padding-left: 20px;
+  border-left: 2px solid rgba(0, 0, 0, 0.3);
+  min-height: 22vh;
+
+  li.document-card {
+    list-style: none;
+    background-color:white;
+    margin-bottom: 20px;
+    padding: 15px 15px 2px 15px;
+    position: relative;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+
+    .details {
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.7s ease;
+    }
+
+    &.open {
+      box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.15);
+      transition: all 0.7s ease;
+    }
+
+    &.open .details {
+      max-height: 350px;
+      overflow: auto;
+    }
+
+    &.consultation {
+      &:before {
+        background-color: $heal-blue;
+      }
+    }
+
+    &.symptom {
+      &:before {
+        background-color: $heal-green;
+      }
+    }
+
+    &:before {
+      content: "";
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      position: absolute;
+      left: -21px;
+      top: 20px;
+      transform: translate(-50%, 0%);
+      border: 2px solid rgba(0, 0, 0, 0.3);
+    }
+
+    .document-date{
+      position: absolute;
+      top: 0px;
+      left: -75px;
+      font-size: 14px;
+    }
+
+    .document-year{
+      position: absolute;
+      top: 22px;
+      left: -65px;
+      font-size: 12px;
+    }
+
+    h2 {
+      font-size: 19px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+
+
+  }
+}

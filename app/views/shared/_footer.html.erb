@@ -23,12 +23,12 @@
     <% end %>
 
 
-  <div class="icon-menu">
-
+    <%= link_to documents_path do %>
+      <div class="icon-menu <%= active_class("document") %>">
       <%= image_tag 'document.png' %>
       <p>Docs</p>
-
-  </div>
+      </div>
+    <% end %>
 
 
 </div>

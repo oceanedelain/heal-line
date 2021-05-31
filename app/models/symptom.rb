@@ -1,7 +1,6 @@
 class Symptom < ApplicationRecord
   belongs_to :user
-
-  has_many_attached :files
+  has_many :documents
 
   include PgSearch::Model
   multisearchable against: [:name, :zone, :notes]
