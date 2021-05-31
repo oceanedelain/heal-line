@@ -9,10 +9,10 @@ require "open-uri"
 
 puts "Cleaning database"
 
-Consultation.destroy_all
-Doctor.destroy_all
-Symptom.destroy_all
 Document.destroy_all
+Consultation.destroy_all
+Symptom.destroy_all
+Doctor.destroy_all
 User.destroy_all
 
 puts "Database cleaned, now create doctors"
