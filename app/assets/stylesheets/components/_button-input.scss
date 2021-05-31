@@ -3,15 +3,16 @@
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translate(-50%, 42%);
+  transform: translate(-50%, 120%);
   width: 80px;
+}
+
+.plus-small-btn{
+  width: 38px;
 }
 
 .btn-orange {
   background: $heal-orange;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
   font-size: 18px;
   line-height: 19px;
   padding: 7px 17px 7px 17px;
@@ -20,6 +21,7 @@
   color: white;
   border: solid $heal-orange 1px;
 }
+
 
 .btn-choice{
   background: white;
@@ -36,18 +38,31 @@
 }
 
 .btn-search{
+  background: white;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  border-radius: 50px;
+  color: white;
+  border: 1px solid #ffffff;
+
   background-image: image-url("search.png");
   background-size: cover;
   position: absolute;
-  height: 50px;
-  width: 50px;
-  right: 0;
+  height: 47px;
+  width: 47px;
+  // right: 0;
+  transform: translate(225px, 2px);
+
 }
 
 #input-search{
   border-radius: 40px;
   height: 50px;
   position: relative;
+  // border: 1px solid #edb3b2;
+  border: 1px solid white;
+  box-shadow: 0px 6px 9px rgba(0, 0, 0, 0.15);
 }
 
 
@@ -56,7 +71,7 @@
   border-radius: 50px;
   box-shadow: 0px 6px 9px rgba(0, 0, 0, 0.2);
   color: $heal-blue;
-  font-size: 16px;
+  font-size: 14px;
   padding: 7px 19px;
   height: 38px;
   display: flex;
@@ -93,4 +108,13 @@ a {
   margin-top: 35px;
 }
 
-
+.btn-blue{
+  background: $heal-blue;
+  font-size: 20px;
+  line-height: 19px;
+  padding: 12px 15px;
+  border-radius: 10px;
+  box-shadow: 0px 6px 9px rgba(0, 0, 0, 0.2);
+  color: white;
+  border: solid $heal-blue 1px;
+}
