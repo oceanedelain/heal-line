@@ -17,7 +17,7 @@ module ApplicationHelper
 
   def circle_color
     week = (Date.today..Date.today + 7).to_a
-    return 'circle-orange' if week.include?(current_user.next_consultation.at.to_date) if current_user
+    return 'circle-orange' if week.include?(current_user.next_consultation&.at&.to_date) if current_user
     return 'circle-blue'
   end
 
