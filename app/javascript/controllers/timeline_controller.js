@@ -10,6 +10,7 @@ export default class extends Controller {
       const card = this.element.querySelector(`#${this.focusValue}`);
       if (!card) return;
       card.classList.add('open');
+      card.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
     }
   }
 }

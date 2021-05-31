@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :consultations, only: [ :new, :create, :edit, :update, :show, :destroy ]
   resources :symptoms, only:  [ :new, :create, :edit, :update, :show, :destroy ]
+  resources :doctors, only:  [ :new, :create, :edit, :update, :show, :destroy ]
   resources :documents, only:  [ :index, :new, :create, :edit, :update, :show, :destroy ]
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
 end
