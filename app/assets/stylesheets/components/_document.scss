@@ -13,34 +13,6 @@
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
     border-radius: 16px;
 
-    .details {
-      max-height: 0;
-      overflow: hidden;
-      transition: all 0.7s ease;
-    }
-
-    &.open {
-      box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.15);
-      transition: all 0.7s ease;
-    }
-
-    &.open .details {
-      max-height: 350px;
-      overflow: auto;
-    }
-
-    &.consultation {
-      &:before {
-        background-color: $heal-blue;
-      }
-    }
-
-    &.symptom {
-      &:before {
-        background-color: $heal-green;
-      }
-    }
-
     &:before {
       font-family: "Font Awesome 5 Free";
       content: "\f15c";
