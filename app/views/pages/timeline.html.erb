@@ -32,7 +32,7 @@ edit_symptom_path %>
 
       <% @data.each do |item| %>
 
-        <li class="timeline-card <%= data_type(item) %>" id="<%= dom_id(item) %>">
+        <li class="timeline-card <%= past?(item) %> <%= data_type(item) %>" id="<%= dom_id(item) %>">
             <div class="summary">
               <div class="h2-edit">
                 <h2><%= item.name %></h2>

@@ -2,48 +2,50 @@
 
   <ul class="nav nav-tabs mt-5" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
-      <a class="nav-link active" id="health-tab" data-toggle="tab" href="#health" role="tab" aria-controls="health" aria-selected="true">Ma santé</a>
+      <a class="nav-link active" id="health-tab" data-toggle="tab" href="#health" role="tab" aria-controls="health" aria-selected="true">Ma Santé</a>
     </li>
     <li class="nav-item" role="presentation">
-      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Mon profil</a>
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Mon Profil</a>
     </li>
   </ul>
 
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="health" role="tabpanel" aria-labelledby="health-tab">
-    
+
       <div class="infos">
         <h3 class="blue-title">Mes infos</h3>
         <ul>
-          <li><p>Numéro SSN : <%= current_user.ssn %></p></li>
-          <li><p>Taille : <%= current_user.height %></p></li>
-          <li><p>Poids : <%= current_user.weight %></p></li>
-          <li><p>Groupe sanguin : <%= current_user.blood_group %></p></li>
-          <li><p>Allergies : <%= current_user.allergies %></p></li>
-          <li><p>Traitements : <%= current_user.treatments %></p></li>
+          <li><span>Numéro SSN</span> : <%= current_user.ssn %></li>
+          <li><span>Taille</span> : <%= current_user.height %></li>
+          <li><span>Poids</span> : <%= current_user.weight %></li>
+          <li><span>Groupe sanguin</span> : <%= current_user.blood_group %></li>
+          <li><span>Allergies</span> : <%= current_user.allergies %></li>
+          <li><span>Traitements</span> : <%= current_user.treatments %></li>
         </ul>
       </div>
 
       <h3 class="blue-title">Mes docteurs</h3>
       <div id="accordion">
-        <% @doctors.each do |doctor| %>
-          <div class="doctor">
-            <div id="headingOne">
-              <h5 class="mb-0">
-                <div data-toggle="collapse" data-target="#doctor-<%= doctor.id %>" aria-expanded="true" aria-controls="doctor-<%= doctor.id %>">
-                  Dr. <%= doctor.last_name %> <%= doctor.first_name %> <span class="text-secondary"><%= doctor.specialty %></span>
+        <ul>
+          <% @doctors.each do |doctor| %>
+            <div class="doctor">
+              <div id="headingOne">
+                <h5 class="mb-0">
+                  <li>
+                    <div class="doc-container" data-toggle="collapse" data-target="#doctor-<%= doctor.id %>" aria-expanded="true" aria-controls="doctor-<%= doctor.id %>">
+                      Dr. <%= doctor.last_name %> <%= doctor.first_name %> <span class="text-secondary"><%= doctor.specialty %></span>
+                    </div>
+                    </h5>
+                  </div>
+                  <div id="doctor-<%= doctor.id %>" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">Adresse : <%= doctor.address %>
+                      Téléphone : <%= doctor.phone_number %>
+                      Email : <%= doctor.email %></li>
                 </div>
-              </h5>
-            </div>
-            <div id="doctor-<%= doctor.id %>" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-              <div class="card-body">
-                Adresse : <%= doctor.address %><br/>
-                Téléphone : <%= doctor.phone_number %><br/>
-                Email : <%= doctor.email %>
               </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        <ul>
       </div>
     </div>
 
@@ -52,14 +54,14 @@
       <div class="infos">
         <h3 class="blue-title">Mes infos</h3>
         <ul>
-          <li><p>Prénom : <%= current_user.first_name %></p></li>
-          <li><p>Nom : <%= current_user.last_name %></p></li>
-          <li><p>Genre : <%= current_user.gender %></p></li>
-          <li><p>Date de naissance : <%= current_user.birth_date %></p></li>
-          <li><p>Adresse : <%= current_user.address %></p></li>
-          <li><p>Téléphone : <%= current_user.phone_number %></p></li>
-          <li><p>Email : <%= current_user.email %></p></li>
-          <li><p>Mot de passe : **********</p></li>
+          <li><span>Prénom</span> : <%= current_user.first_name %></li>
+          <li><span>Nom</span> : <%= current_user.last_name %></li>
+          <li><span>Genre</span> : <%= current_user.gender %></li>
+          <li><span>Date de naissance</span> : <%= current_user.birth_date %></li>
+          <li><span>Adresse</span> : <%= current_user.address %></li>
+          <li><span>Téléphone</span> : <%= current_user.phone_number %></li>
+          <li><span>Email</span> : <%= current_user.email %></li>
+          <li><span>Mot de passe</span> : **********</li>
         </ul>
       </div>
     </div>
