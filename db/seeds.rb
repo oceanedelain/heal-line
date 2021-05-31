@@ -12,6 +12,7 @@ puts "Cleaning database"
 Consultation.destroy_all
 Doctor.destroy_all
 Symptom.destroy_all
+Document.destroy_all
 User.destroy_all
 
 puts "Database cleaned, now create doctors"
@@ -33,39 +34,29 @@ jean.save!
 
 puts "User created, now create consultations"
 
-consultation = Consultation.new(description: "Semelles orthopédiques", category: "Podologie", at: DateTime.parse("05/05/2021 11:30"), notes: "Apporter les radios de mes pieds et genous")
-consultation.user = jean
-consultation.doctor = cohen
-file = URI.open('https://res.cloudinary.com/rachelnas/image/upload/v1621945805/radio_pied_smvxc4.jpg')
-consultation.files.attach(io: file, filename: 'Radio-pied.jpg', content_type: 'image/jpg')
-consultation.save!
+consultation_iep = Consultation.new(description: "Semelles orthopédiques", category: "Podologie", at: DateTime.parse("05/05/2021 11:30"), notes: "Apporter les radios de mes pieds et genous")
+consultation_iep.user = jean
+consultation_iep.doctor = cohen
+consultation_iep.save!
 
-consultation = Consultation.new(description: "Ordonnance lentilles", category: "Ophtalmologie", at: DateTime.parse("10/05/2021 10:15"), notes: "Ne pas porter de lentilles pour le rendez-vous")
-consultation.user = jean
-consultation.doctor = chabot
-file = URI.open('https://res.cloudinary.com/rachelnas/image/upload/v1621945897/ordonnance_lentille_slz91a.png')
-consultation.files.attach(io: file, filename: 'Lentilles.png', content_type: 'image/png')
-consultation.save!
+consultation_yeux = Consultation.new(description: "Ordonnance lentilles", category: "Ophtalmologie", at: DateTime.parse("10/05/2021 10:15"), notes: "Ne pas porter de lentilles pour le rendez-vous")
+consultation_yeux.user = jean
+consultation_yeux.doctor = chabot
+consultation_yeux.save!
 
 consultation = Consultation.new(description: "Appareil dentaire", category: "Dentiste", at: DateTime.parse("31/05/2021 18:30"), notes: "Se brosser les dents avant le rendez-vous")
 consultation.user = jean
 consultation.doctor = vincent
-file = URI.open('https://res.cloudinary.com/rachelnas/raw/upload/v1621946795/ordonnance_word_safb5m.docx')
-consultation.files.attach(io: file, filename: 'Ordonnance.docx', content_type: 'doc/docx')
 consultation.save!
 
 consultation = Consultation.new(description: "Allergies", category: "Généraliste", at: DateTime.parse("10/06/2021 09:00"), notes: "Apporter mes résultats d'analyses")
 consultation.user = jean
 consultation.doctor = durand
-file = URI.open('https://res.cloudinary.com/di1e8ocfv/image/upload/v1621938332/Ordonnance%20medicament.jpg')
-consultation.files.attach(io: file, filename: 'Medicament.jpg', content_type: 'image/jpg')
 consultation.save!
 
 consultation = Consultation.new(description: "Rendez-vous de suivi", category: "Gastro-entérologie", at: DateTime.parse("18/06/2021 19:00"))
 consultation.user = jean
 consultation.doctor = durand
-file = URI.open('https://res.cloudinary.com/rachelnas/raw/upload/v1621946795/ordonnance_word_safb5m.docx')
-consultation.files.attach(io: file, filename: 'Ordonnance.docx', content_type: 'doc/docx')
 consultation.save!
 
 puts "Consultations created, now create symptoms"
@@ -89,5 +80,35 @@ symptom.save!
 symptom = Symptom.new(at: DateTime.parse("25/05/2021 15:15"), name: "Démangeaisons", zone: "Yeux", notes: "Oeil droit qui gratte et qui pleure", intensity: 3, duration: 7)
 symptom.user = jean
 symptom.save!
+
+
+puts "Symptoms created, now create documents"
+
+document = Document.new(document_type: "Imagerie médicale", name: "radios", at: DateTime.parse("05/02/2021 11:30"), notes: "1 radio grand format")
+document.user = jean
+file = URI.open('https://res.cloudinary.com/rachelnas/image/upload/v1621945805/radio_pied_smvxc4.jpg')
+document.file.attach(io: file, filename: 'Radio-pied.jpg', content_type: 'image/jpg')
+document.consultation = consultation_iep
+document.save!
+
+
+document = Document.new(document_type: "Ordonnance de médicaments", name: "lentilles renouvellement", at: DateTime.parse("12/05/2021 15:30"), notes: "Pour 6 mois de vue tranquille")
+document.user = jean
+file = URI.open('https://res.cloudinary.com/rachelnas/image/upload/v1621945897/ordonnance_lentille_slz91a.png')
+document.file.attach(io: file, filename: 'Lentilles.png', content_type: 'image/png')
+document.consultation = consultation_yeux
+document.save!
+
+document = Document.new(document_type: "Ordonnance de médicaments", name: "allergies", at: DateTime.parse("25/04/2021 15:30"), notes: "Pour le pollen l'été")
+document.user = jean
+file = URI.open('https://res.cloudinary.com/rachelnas/raw/upload/v1621946795/ordonnance_word_safb5m.docx')
+document.file.attach(io: file, filename: 'Ordonnance.docx', content_type: 'doc/docx')
+document.save!
+
+document = Document.new(document_type: "Ordonnance de médicaments", name: "douleurs tendinite", at: DateTime.parse("11/03/2021 15:30"), notes: "Douleurs chroniques")
+document.user = jean
+file = URI.open('https://res.cloudinary.com/di1e8ocfv/image/upload/v1621938332/Ordonnance%20medicament.jpg')
+document.file.attach(io: file, filename: 'Medicament.jpg', content_type: 'image/jpg')
+document.save!
 
 puts "All well created ! youpi !"

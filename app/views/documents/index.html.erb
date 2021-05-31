@@ -1,0 +1,17 @@
+<div class="container mt-4">
+  <% @documents.each do |document| %>
+  <div class="document">
+    <li class="document-card">
+      <div class="summary">
+        <i class="fas fa-file-alt fa-index"></i>
+        <p><strong><%= document.name.capitalize %></strong></p>
+        <p><%= document.document_type %></p>
+        <p><%= document.notes %></p>
+        <p class="document-date"><%= document.at.strftime('%e %b') %></p>
+        <p class="document-year"><%= document.at.strftime('%Y') %></p>
+      </div>
+    </li>
+  </div>
+  <% end %>
+</div>
+
