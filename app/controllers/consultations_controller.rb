@@ -32,6 +32,13 @@ class ConsultationsController < ApplicationController
     redirect_to timeline_path
   end
 
+  def destroy
+    @consultation = Consultation.find(params[:id])
+    @consultation.destroy
+    authorize(@consultation)
+    redirect_to timeline_path
+  end
+
 
   private
 
