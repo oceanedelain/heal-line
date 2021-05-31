@@ -1,8 +1,14 @@
 <div class="navbar">
   <div class="heal-line">
-    <%= image_tag "white-caduceus.png", class: 'caduceus-img' %>
+    <%= link_to root_path do %>
+      <%= image_tag "white-caduceus.png", class: 'caduceus-img' %>
+    <% end %>
+
     <h1>Heal Line</h1>
   </div>
+  <%= link_to profile_path, class:"lien-logo" do %>
     <img class="logo avatar" src="https://avatars.githubusercontent.com/u/79912363?v=4">
+  <% end %>
 
 </div>
+

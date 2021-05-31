@@ -1,10 +1,10 @@
 <div class="form-container">
   <div class="row">
-    <div class="container py-5 col-9">
+    <div class="container py-4 col-10">
       <div class="mb-3">
         <div class="top-btn">
           <%= link_to "Consultation", new_consultation_path(Consultation.new), class: "btn btn-orange" %>
-          <%= link_to "Symptome", new_symptom_path(Symptom.new), class: "btn-choice" %>
+          <%= link_to "Symptôme", new_symptom_path(Symptom.new), class: "btn-choice" %>
         </div>
             <%= simple_form_for @consultation do |f| %>
               <div class="div-date">
@@ -15,12 +15,12 @@
                 <%= f.input :category, :label => "Catégorie", collection: Doctor.pluck(:specialty), prompt: '...' %>
               </div>
               <div id="input-description">
-                <%= f.input :description, placeholder: 'Vaccin, Contrôle, ...'   %>
+                <%= f.input :description, placeholder: 'Vaccin, Contrôle ...'   %>
               </div>
               <div class="input-notes">
-              <%= f.input :notes, placeholder: '...' %>
+              <%= f.input :notes, placeholder: 'À quoi devez-vous penser pour ce rdv ?' %>
               <div class="btn-validate">
-                <%= f.submit "Ajouter ce RDV", class: "btn btn-orange" %>
+                <%= f.submit "Ajouter cette consultation", class: " btn-blue" %>
               </div>
           <% end %>
         </div>

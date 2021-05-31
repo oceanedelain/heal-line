@@ -2,7 +2,7 @@
   <div>
     <ul class="timeline mt-4">
 
-      <div class="">
+      <div class="pt-2">
         <%= form_tag timeline_path, class:"flex position-relative pt-2", method: :get do %>
           <%= text_field_tag :choice,
             params[:choice],
@@ -12,29 +12,40 @@
             id: 'input-search',
             class: "form-control",
             placeholder: "Rechercher..." %>
-          <%= submit_tag "", class: "btn-orange btn-search" %>
+          <%= submit_tag "", class: "btn-search" %>
         <% end %>
       </div>
 
+
       <div class="container my-2 flex justify-content-between p-0">
       <%#= link_to "Timeline", timeline_path(choice: :all, query: params[:query]), class:"btn-timeline #{btn_active_class("all")}" %>
-      <%= link_to "Consultation", timeline_path(choice: params[:choice] == "consultation" ? :all : :consultation, query: params[:query]), class:"btn-timeline #{btn_active_class("consultation")}" %>
+      <%= link_to "Consultations", timeline_path(choice: params[:choice] == "consultation" ? :all : :consultation, query: params[:query]), class:"btn-timeline #{btn_active_class("consultation")}" %>
       <%= link_to "Symptômes", timeline_path(choice: params[:choice] == "symptom" ? :all : :symptom, query: params[:query]), class:"pl-3 pr-3 btn-timeline #{btn_active_class("symptom")}" %>
+      <%= link_to new_consultation_path do %>
+        <%= image_tag 'plus2.png', class:'plus-small-btn' %>
+      <% end %>
       </div>
 
 
+<%# edit_consultation_path
+edit_symptom_path %>
 
       <% @data.each do |item| %>
 
         <li class="timeline-card <%= data_type(item) %>" id="<%= dom_id(item) %>">
             <div class="summary">
-              <h2><%= item.name %></h2>
-              <p><%= item.description %></p>
+              <div class="h2-edit">
+                <h2><%= item.name %></h2>
+                <%#= link_to edit_consultation_path(@consultation) do %>
+                  <%# <i class="fas fa-pencil-alt"></i> %>
+                <%# end  %>
+              </div>
+                <p><%= item.description %></p>
             </div>
             <div class="details">
               <p><%= item.notes %></p>
               <% if item.is_a? Consultation %>
-                <%= link_to item.details, root_path %>
+                <%= link_to item.details, profile_path %>
               <% else %>
                 <p><%= item.details %></p>
               <% end %>
