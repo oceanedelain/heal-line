@@ -33,6 +33,11 @@ module ApplicationHelper
   def btn_active_class(name)
     return 'btn-active' if params[:choice] == name
   end
+
+  def past?(item)
+    item.past? if item.is_a? Consultation
+  end
+
 end
 
 

@@ -31,13 +31,13 @@
 
     &.consultation {
       &:before {
-        background-color: $heal-blue;
+        background-color: $heal-orange;
       }
     }
 
     &.symptom {
       &:before {
-        background-color: $heal-green;
+        background-color: $heal-blue;
       }
     }
 
@@ -74,7 +74,11 @@
     p {
       font-size: 14px;
     }
-
-
   }
+}
+
+.past{
+  color: rgb(194, 194, 194);
+  box-shadow: none !important;
+  background: $heal-fake-white;
 }
