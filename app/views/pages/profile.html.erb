@@ -63,6 +63,7 @@
           <li><span>Email</span> : <%= current_user.email %></li>
           <li><span>Mot de passe</span> : **********</li>
         </ul>
+        <%= link_to "> Me déconnecter", destroy_user_session_path, method: :delete, class:"deconnect" %>
       </div>
     </div>
   </div>

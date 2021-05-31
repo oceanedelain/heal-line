@@ -1,0 +1,15 @@
+      <%= simple_form_for @doctor do |f| %>
+        <div class="form-flex">
+          <%= f.input :first_name, :label => "Prénom", placeholder: 'Serge' %>
+          <%= f.input :last_name, :label => "Nom", placeholder: 'Cohen' %>
+        </div>
+        <%= f.input :specialty, :label => "Spécialité", placeholder: 'Dermatologue' %>
+        <%= f.input :phone_number, :label => "Téléphone", placeholder: '0175171819' %>
+        <%= f.input :address, :label => "Adresse", placeholder: '17 rue des rosiers, 75004 Paris' %>
+        <%= f.input :email, :label => "E-mail", placeholder: "serge.coco75@gmail.com" %>
+
+        <div class="btn-validate">
+          <% button_text = @doctor.new_record? ? "Ajouter ce Docteur" : "Editer mon Docteur" %>
+          <%= f.submit button_text, class: "btn-blue align-center" %>
+        </div>
+      <% end%>
