@@ -1,8 +1,7 @@
 class Consultation < ApplicationRecord
   belongs_to :user
   belongs_to :doctor, optional: true
-
-  has_many_attached :files
+  has_many :documents
 
   scope :upcoming, -> { where('at > ?', Date.today) }
   scope :past, -> { where('at < ?', Date.today) }

@@ -46,8 +46,10 @@ edit_symptom_path %>
               <p><%= item.notes %></p>
               <% if item.is_a? Consultation %>
                 <%= link_to item.details, profile_path %>
+                <p class="supprimer" ><%= link_to "Supprimer", consultation_path(item), method: :delete, data: { confirm: "Are you sure ?"} %> <i class="far fa-trash-alt"></i></p>
               <% else %>
                 <p><%= item.details %></p>
+                <p class="supprimer" ><%= link_to "Supprimer", symptom_path(item), method: :delete, data: { confirm: "Are you sure ?"} %> <i class="far fa-trash-alt"></i></p>
               <% end %>
             </div>
           <p class="timeline-date"><%= item.at.strftime('%e %b') %></p>

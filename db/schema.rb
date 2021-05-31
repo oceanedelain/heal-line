@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_27_140401) do
+ActiveRecord::Schema.define(version: 2021_05_31_105357) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,21 @@ ActiveRecord::Schema.define(version: 2021_05_27_140401) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "documents", force: :cascade do |t|
+    t.string "name"
+    t.text "notes"
+    t.datetime "at"
+    t.bigint "user_id", null: false
+    t.bigint "consultation_id"
+    t.bigint "symptom_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "document_type"
+    t.index ["consultation_id"], name: "index_documents_on_consultation_id"
+    t.index ["symptom_id"], name: "index_documents_on_symptom_id"
+    t.index ["user_id"], name: "index_documents_on_user_id"
+  end
+
   create_table "pg_search_documents", force: :cascade do |t|
     t.text "content"
     t.string "searchable_type"
@@ -117,5 +132,8 @@ ActiveRecord::Schema.define(version: 2021_05_27_140401) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "consultations", "doctors"
   add_foreign_key "consultations", "users"
+  add_foreign_key "documents", "consultations"
+  add_foreign_key "documents", "symptoms"
+  add_foreign_key "documents", "users"
   add_foreign_key "symptoms", "users"
 end
