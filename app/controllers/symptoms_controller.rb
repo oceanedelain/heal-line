@@ -32,6 +32,13 @@ class SymptomsController < ApplicationController
     redirect_to timeline_path
   end
 
+  def destroy
+    @symptom = Symptom.find(params[:id])
+    @symptom.destroy
+    authorize(@symptom)
+    redirect_to timeline_path
+  end
+
   private
 
   def symptom_params

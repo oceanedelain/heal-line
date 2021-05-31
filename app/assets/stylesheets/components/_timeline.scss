@@ -31,13 +31,13 @@
 
     &.consultation {
       &:before {
-        background-color: $heal-blue;
+        background-color: $heal-orange;
       }
     }
 
     &.symptom {
       &:before {
-        background-color: $heal-green;
+        background-color: $heal-blue;
       }
     }
 
@@ -74,7 +74,29 @@
     p {
       font-size: 14px;
     }
+  }
+}
 
+.past{
+  color: rgb(194, 194, 194);
+  box-shadow: none !important;
+  background: $heal-fake-white;
+}
 
+.supprimer{
+  display: flex !important;
+  justify-content: flex-end !important;
+  font-size: 12px !important;
+    a {
+      color: grey;
+      text-decoration: none;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  i {
+    font-size: 16px !important;
+    color: grey;
+    margin-left: 4px ;
   }
 }

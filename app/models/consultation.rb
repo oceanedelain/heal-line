@@ -21,5 +21,7 @@ class Consultation < ApplicationRecord
     self.at < Date.today + 7
   end
 
-
+  def past?
+    'past' if self.at < Date.today
+  end
 end
