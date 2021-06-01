@@ -25,7 +25,7 @@
   <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
     <%= render 'shared/navbar' %>
     <%#= render 'shared/flashes' %>
-    <div class="<%= action_name == 'timeline' ? 'container-timeline' : 'container-custom' %>">
+    <div class="<%= action_name == 'timeline' || action_name == 'new' || action_name == 'edit'  ? 'container-timeline' : 'container-custom' %>">
       <%= yield %>
     </div>
     <%= render 'shared/flashes' %>

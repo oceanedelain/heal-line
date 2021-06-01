@@ -17,6 +17,7 @@ class ConsultationsController < ApplicationController
     @consultation.user = current_user
 
     if @consultation.save
+      flash[:notice] = "Ma consultation a bien été ajoutée."
       redirect_to timeline_path(anchor: "consultation_#{@consultation.id}", params: { choice: 'consultation', focus: "consultation_#{@consultation.id}" })
     else
       render :new
@@ -31,6 +32,7 @@ class ConsultationsController < ApplicationController
   def update
     @consultation.update(consultation_params)
     authorize(@consultation)
+    flash[:notice] = "Ma consultation a bien été éditée."
     redirect_to timeline_path
   end
 
