@@ -1,0 +1,21 @@
+.simple-calendar {
+  table {
+    min-height: 80vh;
+  }
+  .today {
+    background-color: $heal-light-grey;
+  }
+}
+
+.consultation {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $heal-blue;
+  transition: background 0.3s ease;
+}
+
+.consultation:hover {
+  background: $heal-orange;
+  color: white;
+}
