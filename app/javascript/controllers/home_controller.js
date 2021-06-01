@@ -4,19 +4,31 @@ export default class extends Controller {
   static targets = ['stroke', 'circles'];
 
   initialize() {
-    this.observer = new IntersectionObserver(this.manageObervables.bind(this));
+    // prettier-ignore
+    this.observer = new IntersectionObserver(this.manageObservables.bind(this), { rootMargin: '-160px' });
+    this.strokeTargets.forEach((item) => this.observer.observe(item));
   }
 
   connect() {
     this.element.querySelector('[data-consultation="true"').click();
   }
 
-  setObservables() {
-    this.strokeTargets.forEach((item) => this.observer.observe(item));
+  manageObservables(observables) {
+    observables.forEach(this.intersection);
   }
 
-  manageObervables(observables) {
-    console.log(overvales);
+  intersection(observable) {
+    const isIntersecting = observable.isIntersecting;
+
+    if (isIntersecting) {
+      const day = observable.target.closest('.day');
+
+      if (day.dataset.consultation === 'true') {
+        day.click();
+      }
+    } else {
+      observable.target.classList.remove('active');
+    }
   }
 
   center({ currentTarget }) {
