@@ -1,17 +1,19 @@
 <div class="container" data-controller="timeline" data-timeline-focus-value="<%= params[:focus] %>">
-  <div>
+  <div data-controller="refresh-list">
     <ul class="timeline mt-4">
 
       <div class="pt-2">
-        <%= form_tag timeline_path, class:"flex position-relative pt-2", method: :get do %>
-          <%= text_field_tag :choice,
-            params[:choice],
-            class: "d-none" %>
-          <%= text_field_tag :query,
-            params[:query],
+        <%= form_with url: timeline_path, class:"flex position-relative pt-2",method: :get, html: { class: 'mb-5', data: { refresh_list_target: 'form' } } do |f| %>
+          <%= f.text_field :query,
             id: 'input-search',
             class: "form-control",
-            placeholder: "Rechercher..." %>
+            placeholder: "Rechercher...",
+            value: params[:query],
+            data: {
+                  refresh_list_target: 'searchInput',
+                  action: "keyup->refresh-list#update"
+                }
+          %>
           <%= submit_tag "", class: "btn-search" %>
         <% end %>
       </div>
@@ -30,33 +32,37 @@
 <%# edit_consultation_path
 edit_symptom_path %>
 
+    <div data-refresh-list-target="list">
       <% @data.each do |item| %>
 
-        <li class="timeline-card <%= past?(item) %> <%= data_type(item) %>" id="<%= dom_id(item) %>">
-            <div class="summary">
-              <div class="h2-edit">
-                <h2><%= item.name %></h2>
-                <%#= link_to edit_consultation_path(@consultation) do %>
-                  <%# <i class="fas fa-pencil-alt"></i> %>
-                <%# end  %>
+          <li class="timeline-card <%= past?(item) %> <%= data_type(item) %>" id="<%= dom_id(item) %>">
+              <div class="summary">
+                <div class="h2-edit">
+                  <h2><%= item.name %></h2>
+                  <%#= link_to edit_consultation_path(@consultation) do %>
+                    <%# <i class="fas fa-pencil-alt"></i> %>
+                  <%# end  %>
+                </div>
+                  <p><%= item.description %></p>
               </div>
-                <p><%= item.description %></p>
-            </div>
-            <div class="details">
-              <p><%= item.notes %></p>
-              <% if item.is_a? Consultation %>
-                <%= link_to item.details, profile_path %>
-                <p class="supprimer" ><%= link_to "Supprimer", consultation_path(item), method: :delete, data: { confirm: "Are you sure ?"} %> <i class="far fa-trash-alt"></i></p>
-              <% else %>
-                <p><%= item.details %></p>
-                <p class="supprimer" ><%= link_to "Supprimer", symptom_path(item), method: :delete, data: { confirm: "Are you sure ?"} %> <i class="far fa-trash-alt"></i></p>
-              <% end %>
-            </div>
-          <p class="timeline-date"><%= item.at.strftime('%e %b') %></p>
-          <p class="timeline-year"><%= item.at.strftime('%Y') %></p>
-        </li>
+              <div class="details">
+                <p><%= item.notes %></p>
+                <% if item.is_a? Consultation %>
+                  <%= link_to item.details, profile_path %>
+                  <p class="supprimer" ><%= link_to "Supprimer", consultation_path(item), method: :delete, data: { confirm: "Are you sure ?"} %> <i class="far fa-trash-alt"></i></p>
+                <% else %>
+                  <p><%= item.details %></p>
+                  <p class="supprimer" ><%= link_to "Supprimer", symptom_path(item), method: :delete, data: { confirm: "Are you sure ?"} %> <i class="far fa-trash-alt"></i></p>
+                <% end %>
+              </div>
+            <p class="timeline-date"><%= item.at.strftime('%e %b') %></p>
+            <p class="timeline-year"><%= item.at.strftime('%Y') %></p>
+          </li>
 
-      <% end %>
+        <% end %>
+      </div>
+
+
     </ul>
   </div>
 </div>

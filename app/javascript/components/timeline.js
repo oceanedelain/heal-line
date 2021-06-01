@@ -1,7 +1,7 @@
 const toggleTimelineCard = () => {
   if (document.querySelector('.timeline')) {
     const cards = document.querySelectorAll(".timeline-card");
-    console.log(cards);
+    // console.log(cards);
     cards.forEach((card) => {
       card.addEventListener("click", (event) => {
         // select elements which have class open
