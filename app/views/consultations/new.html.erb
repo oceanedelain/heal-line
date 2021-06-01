@@ -1,29 +1,8 @@
 <div class="form-container">
   <div class="row no-gutters">
     <div class="container py-4 col-10">
-      <div class="mb-3">
-        <div class="top-btn">
-          <%= link_to "Consultation", new_consultation_path(Consultation.new), class: "btn-timeline-consultation btn-timeline" %>
-          <%= link_to "Symptôme", new_symptom_path(Symptom.new), class: "btn-timeline" %>
-        </div>
-            <%= simple_form_for @consultation do |f| %>
-              <div class="div-date">
-                <%= f.input :at, as: :string, :label => "Date et Heure", input_html: {class: "datepicker"}, placeholder: '...' %>
-              </div>
-              <div class="form-flex">
-                <%= f.association :doctor, :label => "Medecins", prompt: '...' %>
-                <%= f.input :category, :label => "Catégorie", collection: Doctor.pluck(:specialty), prompt: '...' %>
-              </div>
-              <div id="input-description">
-                <%= f.input :description, placeholder: 'Vaccin, Contrôle ...'   %>
-              </div>
-              <div class="input-notes">
-              <%= f.input :notes, placeholder: 'À quoi devez-vous penser pour ce rdv ?' %>
-              <div class="btn-validate">
-                <%= f.submit "Ajouter cette consultation", class: " btn-blue" %>
-              </div>
-          <% end %>
-        </div>
+      <h3 class="blue-title text-center mb-4">Ajouter une consultation</h3>
+      <%= render "form", consultation: @consultation %>
     </div>
   </div>
 </div>
