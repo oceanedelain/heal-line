@@ -1,43 +1,54 @@
-import { Controller } from "stimulus"
+import { Controller } from 'stimulus';
 
 export default class extends Controller {
-  static targets = ['stroke', 'consultationCircle']
+  static targets = ['stroke', 'circles'];
 
-  connect() {
-    console.log('home controller');
+  initialize() {
+    this.observer = new IntersectionObserver(this.manageObervables.bind(this));
   }
 
-  center({currentTarget}) {
+  connect() {
+    this.element.querySelector('[data-consultation="true"').click();
+  }
+
+  setObservables() {
+    this.strokeTargets.forEach((item) => this.observer.observe(item));
+  }
+
+  manageObervables(observables) {
+    console.log(overvales);
+  }
+
+  center({ currentTarget }) {
     if (currentTarget.dataset.consultation === 'true') {
-      currentTarget.scrollIntoView({ behavior: "smooth", block: "start", inline: "center" });
-      this.strokeTargets.forEach(item => item.classList.remove('active'))
+      currentTarget.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'center',
+      });
+      this.strokeTargets.forEach((item) => item.classList.remove('active'));
       currentTarget.querySelector('.stroke').classList.add('active');
-      this.replaceConsultation(currentTarget)
 
-
-
-
-
-      //  this.fetchAppointment(currentTarget);
-
+      // this.replaceConsultation(currentTarget);
+      this.fetchAppointment(currentTarget);
     }
   }
 
-  replaceConsultation(currentTarget) {
-    const ids = JSON.parse(currentTarget.dataset.consultationIds);
-    fetch(`/fetch_consultation?consultation_id=${ids[0]}`,
-      { 'Accept': "application/json" }
-    )
-    .then(response => response.json())
-    .then(data => this.consultationCircleTarget.outerHTML = data.consultation_html)
-  }
+  // replaceConsultation(currentTarget) {
+  //   const ids = JSON.parse(currentTarget.dataset.consultationIds);
+
+  //   fetch(`/fetch_consultation?consultation_ids=${ids}`, {
+  //     Accept: 'application/json',
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => (this.circlesTarget.innerHTML = data.html));
+  // }
 
   async fetchAppointment(currentTarget) {
-    const ids = JSON.parse(currentTarget.dataset.consultationIds)
-
-    const response = await fetch(`/fetch_consultation?consultation_id=${ids[0]}`, { 'Accept': "application/json" });
+    const ids = JSON.parse(currentTarget.dataset.consultationIds);
+    // prettier-ignore
+    const response = await fetch(`/fetch_consultations?consultation_ids=${ids}`, { Accept: 'application/json' });
     const data = await response.json();
-    console.log(data)
-    this.consultationCircleTarget.outerHTML = data.consultation_html
+    this.circlesTarget.innerHTML = data.html;
   }
 }

@@ -44,16 +44,16 @@ class ConsultationsController < ApplicationController
   end
 
   def fetch
-    @consultation = Consultation.find(params[:consultation_id])
+    ids = params[:consultation_ids].split(',').map(&:to_i)
+    @consultations = Consultation.where(id: ids)
     skip_authorization
 
     respond_to do |format|
       format.json do
         response = {
-          consultation: @consultation,
-          doctor: @consultation.doctor,
-          consultation_html: render_to_string(partial: "pages/consultation_circle", locals: { consultation: @consultation }, layout: false, formats: :html )
-         }
+          consultation: @consultations,
+          html: render_to_string(partial: "pages/circles", locals: { consultations: @consultations }, layout: false, formats: :html)
+        }
         render json: response.to_json
       end
     end

@@ -1,0 +1,9 @@
+<div id="swiper" data-controller="swiper" class="swiper-container">
+  <div class="swiper-wrapper">
+    <% consultations.each do |consultation| %>
+      <%= render 'pages/circle', consultation: consultation, swiper: consultations.size > 1 %>
+    <% end %>
+  </div>
+  <div class="swiper-pagination"></div>
+</div>
+

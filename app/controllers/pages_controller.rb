@@ -2,8 +2,8 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def home
-    @scrolling_days = ((Date.today - 3.days)..(Date.today + 14.days)).to_a
-    @consultation = Consultation.where('at > ?', DateTime.now).first
+    @scrolling_days = ((Date.today - 7.days)..(Date.today + 14.days)).to_a
+    @consultations = current_user.consultations_group_by_date
   end
 
   def timeline

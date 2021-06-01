@@ -22,4 +22,8 @@ class User < ApplicationRecord
   def find_consultations(day)
     consultations.where(at: day.all_day)
   end
+
+  def consultations_group_by_date
+    consultations.upcoming.order(at: :asc).group_by { |consultation| consultation.at.to_date }
+  end
 end

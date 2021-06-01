@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get '/timeline', to: 'pages#timeline'
   get '/profile', to: 'pages#profile'
-  get '/fetch_consultation', to: 'consultations#fetch'
+  get '/fetch_consultations', to: 'consultations#fetch'
 
   resources :consultations, only: [ :index, :new, :create, :edit, :update, :show, :destroy ]
   resources :symptoms, only:  [ :new, :create, :edit, :update, :show, :destroy ]
