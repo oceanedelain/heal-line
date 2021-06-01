@@ -1,29 +1,29 @@
-<div data-refresh-list-target="list">
-  <% data.each do |item| %>
+<% data.each do |item| %>
+  <li class="timeline-card <%= past?(item) %> <%= data_type(item) %>"
+      id="<%= dom_id(item) %>"
+      data-action="click->timeline#focus"
+      data-timeline-target="card">
 
-    <li class="timeline-card <%= past?(item) %> <%= data_type(item) %>" id="<%= dom_id(item) %>">
-        <div class="summary">
-          <div class="h2-edit">
-            <h2><%= item.name %></h2>
-            <%#= link_to edit_consultation_path(@consultation) do %>
-              <%# <i class="fas fa-pencil-alt"></i> %>
-            <%# end  %>
-          </div>
-            <p><%= item.description %></p>
+      <div class="summary">
+        <div class="h2-edit">
+          <h2><%= item.name %></h2>
         </div>
-        <div class="details">
-          <p><%= item.notes %></p>
-          <% if item.is_a? Consultation %>
-            <%= link_to item.details, profile_path %>
-            <p class="supprimer" ><%= link_to "Supprimer", consultation_path(item), method: :delete, data: { confirm: "Are you sure ?"} %> <i class="far fa-trash-alt"></i></p>
-          <% else %>
-            <p><%= item.details %></p>
-            <p class="supprimer" ><%= link_to "Supprimer", symptom_path(item), method: :delete, data: { confirm: "Are you sure ?"} %> <i class="far fa-trash-alt"></i></p>
+          <p><%= item.description %></p>
+      </div>
+      <div class="details">
+        <p><%= item.notes %></p>
+        <% if item.is_a? Consultation %>
+          <%= link_to consultation_path(item), method: :delete, data: { confirm: "Are you sure ?"} do %>
+            <i class="far fa-trash-alt poubelle"></i>
           <% end %>
-        </div>
-      <p class="timeline-date"><%= item.at.strftime('%e %b') %></p>
-      <p class="timeline-year"><%= item.at.strftime('%Y') %></p>
-    </li>
-
-  <% end %>
-</div>
+        <% else %>
+          <p><%= item.details %></p>
+          <%= link_to symptom_path(item), method: :delete, data: { confirm: "Are you sure ?"} do %>
+            <i class="far fa-trash-alt poubelle"></i>
+          <% end %>
+        <% end %>
+      </div>
+    <p class="timeline-date"><%= item.at.strftime('%e %b') %></p>
+    <p class="timeline-year"><%= item.at.strftime('%Y') %></p>
+  </li>
+<% end %>

@@ -1,9 +1,8 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static values = {
-    focus: String,
-  }
+  static targets = ['card']
+  static values = { focus: String }
 
   connect() {
     if (this.focusValue) {
@@ -12,5 +11,10 @@ export default class extends Controller {
       card.classList.add('open');
       card.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
     }
+  }
+
+  focus(event) {
+    this.cardTargets.forEach(card => card.classList.remove('open'))
+    event.currentTarget.classList.toggle('open')
   }
 }

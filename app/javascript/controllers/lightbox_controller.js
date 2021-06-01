@@ -1,5 +1,4 @@
 import { Controller } from "stimulus"
-import { simpleLightbox } from "simplelightbox";
 
 export default class extends Controller {
   static targets = ['modal']
