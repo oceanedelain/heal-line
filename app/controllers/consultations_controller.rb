@@ -46,7 +46,14 @@ class ConsultationsController < ApplicationController
     skip_authorization
 
     respond_to do |format|
-      format.json { render json: { consultation: @consultation, doctor: @consultation.doctor } }
+      format.json do
+        response = {
+          consultation: @consultation,
+          doctor: @consultation.doctor,
+          consultation_html: render_to_string(partial: "pages/consultation_circle", locals: { consultation: @consultation }, layout: false, formats: :html )
+         }
+        render json: response.to_json
+      end
     end
   end
 
