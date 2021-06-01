@@ -18,7 +18,6 @@
 
 
       <div class="container my-2 flex justify-content-between p-0">
-      <%#= link_to "Timeline", timeline_path(choice: :all, query: params[:query]), class:"btn-timeline #{btn_active_class("all")}" %>
       <%= link_to "Consultations", timeline_path(choice: params[:choice] == "consultation" ? :all : :consultation, query: params[:query]), class:"btn-timeline #{btn_active_class("consultation")}" %>
       <%= link_to "Symptômes", timeline_path(choice: params[:choice] == "symptom" ? :all : :symptom, query: params[:query]), class:"pl-3 pr-3 btn-timeline #{btn_active_class("symptom")}" %>
       <%= link_to new_consultation_path do %>
@@ -26,9 +25,6 @@
       <% end %>
       </div>
 
-
-<%# edit_consultation_path
-edit_symptom_path %>
 
       <% @data.each do |item| %>
 
