@@ -12,6 +12,7 @@ class DoctorsController < ApplicationController
     @doctor = Doctor.new(doctor_params)
     authorize(@doctor)
     if @doctor.save
+      flash[:notice] = "Mon docteur a bien été ajouté."
       redirect_to profile_path(@doctor)
     else
       render :new
@@ -27,6 +28,7 @@ class DoctorsController < ApplicationController
     @doctor = Doctor.find(params[:id])
     @doctor.update(doctor_params)
     authorize(@doctor)
+    flash[:notice] = "Mon docteur a bien été édité."
     redirect_to profile_path(@doctor)
   end
 

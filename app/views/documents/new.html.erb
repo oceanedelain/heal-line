@@ -1,14 +1,20 @@
-<div class="mt-5">
-  <%= simple_form_for @document do |f| %>
-    <%= f.input :at, as: :string, :label => "Date du document :",input_html: {class: "datepicker"},placeholder: '...' %>
-    <%= f.input :name, :label => "Nom du document :", placeholder: '....' %>
-    <%= f.input :document_type, :label => "Type de document :", prompt: 'Type de document', :collection => ["Compte-rendu","Résultats d'analyse","Imagerie médicale","Ordonnance de médicaments","Ordonnance de biologie","Ordonnance d'imagerie","Soins paramédicaux","Courrier d'adressage"] %>
-    <%= f.input :notes, placeholder: 'Annotez votre document...' %>
-    <%= f.input :file, as: :file %>
-    <div class="btn-validate">
-      <%= f.submit "Ajouter ce document", class: "btn-blue" %>
-    </div>
-  <% end %>
-</div>
 
+
+<div class="form-container">
+  <div class="row no-gutters mt-4">
+    <div class="container py-4 col-10">
+      <h2 class="blue-title text-center mb-4">Ajouter un document</h2>
+      <%= simple_form_for @document do |f| %>
+        <%= f.input :at, as: :string, :label => "Date du document :",input_html: {class: "datepicker"},placeholder: '...' %>
+        <%= f.input :name, :label => "Nom du document :", placeholder: '....' %>
+        <%= f.input :document_type, :label => "Type de document :", prompt: 'Type de document', :collection => ["Compte-rendu","Résultats d'analyse","Imagerie médicale","Ordonnance de médicaments","Ordonnance de biologie","Ordonnance d'imagerie","Soins paramédicaux","Courrier d'adressage"] %>
+        <%= f.input :notes, placeholder: 'Annotez votre document...' %>
+        <%= f.input :file, as: :file, class:"btn-blue" %>
+        <div class="btn-validate">
+        <%= f.submit "Ajouter ce document", class: "btn-blue" %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
 
