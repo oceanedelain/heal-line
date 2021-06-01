@@ -3,15 +3,17 @@
   <div class="document">
     <li class="document-card">
       <div class="summary">
-        <p><strong><%= document.name.capitalize %></strong></p>
+        <h2><%= document.name.capitalize %></h2>
         <p><%= document.document_type %></p>
         <p><%= document.notes %></p>
+        </div>
         <p class="document-date"><%= document.at.strftime('%e %b') %></p>
         <p class="document-year"><%= document.at.strftime('%Y') %></p>
-        </div>
+        <div class="small-icons">
         <i class="far fa-eye"></i>
         <i class="fas fa-pencil-alt"></i>
         <i class="far fa-trash-alt"></i>
+        </div>
     </li>
   </div>
   <% end %>
