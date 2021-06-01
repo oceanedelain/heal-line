@@ -1,15 +1,13 @@
-<div class="column">
+<div class="column" data-controller="home">
   <div class="week-container flex">
     <div class="calendar">
       <%= link_to 'Calendrier', consultations_path %>
     </div>
     <% @scrolling_days.each do |day| %>
       <div class="day column">
-
         <%=  I18n.l(day, format: "%a").capitalize %>
-        <div class="<%= 'today' if day == Date.today%>  <%= 'rdv-day' if Consultation.exists?(user: current_user, at: day.all_day) %>" >
-
-          <strong><%= day.strftime('%e') %></strong>
+        <div class="<%= 'today' if day == Date.today%>  <%= 'rdv-day' if Consultation.exists?(user: current_user, at: day.all_day) %>">
+        <strong><%= day.strftime('%e') %></strong>
         </div>
       </div>
     <% end %>
@@ -21,13 +19,13 @@
       <h5 class="black-p"><%= @consultation.at.strftime("%e %b, %l:%M")%></h5>
       <div class="info-rdv">
         <div class="flex">
-          <i class="fas fa-map-marker-alt mr-3"></i><p>  <%= @consultation.doctor.address %></p>
+          <i class="fas fa-map-marker-alt mr-3"></i><p><%= @consultation.doctor.address %></p>
         </div>
         <div class="flex">
-          <i class="fas fa-user-md mr-3"></i><p> Dr  <%= @consultation.doctor.last_name %></p>
+          <i class="fas fa-user-md mr-3"></i><p> Dr <%= @consultation.doctor.last_name %></p>
         </div>
         <div class="flex">
-          <i class="far fa-lightbulb mr-3"></i><p>  <%= @consultation.notes %></p>
+          <i class="far fa-lightbulb mr-3"></i><p> <%= @consultation.notes %></p>
         </div>
       <%= link_to edit_consultation_path(@consultation) do %>
         <p class="text-center"><i class="fas fa-pencil-alt"></i></p>
@@ -37,8 +35,6 @@
         <%= image_tag 'plus.png', class:'plus-btn' %>
       <% end %>
     </div>
-
-
   <% else %>
     <div class="cercle-container flex column <%= circle_color %>">
       <%= image_tag 'lightbulb.png', style:"width: 40px" %>
