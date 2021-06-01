@@ -1,0 +1,10 @@
+<%= month_calendar(events: @consultations, attribute: :at) do |date, consultations| %>
+  <%= date %>
+
+  <% consultations.each do |consultation| %>
+    <div class="consultation">
+      <p><%= consultation.category %></p>
+      <%#= link_to consultation.category, consultation_path(consultation)%>
+    </div>
+  <% end %>
+<% end %>

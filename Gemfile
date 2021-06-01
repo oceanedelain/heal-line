@@ -37,6 +37,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'cloudinary', '~> 1.16.0'
 gem 'pg_search', '~> 2.3.0'
+gem "simple_calendar", "~> 2.4"
 
 
 

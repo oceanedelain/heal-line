@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="icon" type="logo" href="<%= image_url("caduceus.png") %>">
 
+
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -21,10 +22,12 @@
     <%= render 'shared/ios_pwa_links' %>
   </head>
 
-  <body>
+  <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
     <%= render 'shared/navbar' %>
     <%#= render 'shared/flashes' %>
-    <%= yield %>
+    <div class="<%= action_name == 'timeline' ? 'container-timeline' : 'container-custom' %>">
+      <%= yield %>
+    </div>
     <%= render 'shared/flashes' %>
     <%= render 'shared/footer' %>
   </body>

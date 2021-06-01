@@ -21,7 +21,13 @@ class PagesController < ApplicationController
 
     params[:focus] ||= "consultation_#{current_user.next_consultation.id}"
     @data = @data.map(&:searchable).sort_by { |item| item.at }
+
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: 'list.html', locals: { data: @data } }
+    end
   end
+
 
   def profile
     @doctors = current_user.doctors

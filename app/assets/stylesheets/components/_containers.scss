@@ -28,15 +28,21 @@
 .week-container{
   justify-content: flex-start;
   width: 92%;
-  height: 25vh;
   overflow-x: auto;
   align-items: center;
   color: $heal-dark-grey;
+  margin-bottom: 50px;
+  margin-top: 10px;
 
   >.day{
   margin: 8px;
   }
 
+  >.calendar {
+    position: absolute;
+    top: 89px;
+    right: 26px;
+  }
 
 }
 
@@ -69,3 +75,19 @@
   }
 }
 
+
+.container-custom {
+  margin-top: 140px;
+}
+
+.container-timeline {
+  margin-top: 105px;
+}
+
+
+
+
+  .container_custom #pages-timeline{
+
+  margin-top: 100px !important;
+}
