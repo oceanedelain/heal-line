@@ -22,10 +22,12 @@
     <%= render 'shared/ios_pwa_links' %>
   </head>
 
-  <body>
+  <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
     <%= render 'shared/navbar' %>
     <%#= render 'shared/flashes' %>
-    <%= yield %>
+    <div class="<%= action_name == 'timeline' ? 'container-timeline' : 'container-custom' %>">
+      <%= yield %>
+    </div>
     <%= render 'shared/flashes' %>
     <%= render 'shared/footer' %>
   </body>

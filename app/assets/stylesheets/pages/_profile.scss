@@ -4,6 +4,15 @@
   color: rgb(58, 58, 58);
 }
 
+.section-title {
+  font-family: 'Ruluko';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 32px;
+  color: $heal-orange;
+}
+
 .blue-title {
   font-family: 'Ruluko';
   font-style: normal;
@@ -39,8 +48,8 @@ ul {
 
 .nav-tabs .nav-link.active{
   font-weight: 500;
-  color: $heal-orange;
-  border-bottom: 1px solid $heal-orange;
+  color: $heal-blue;
+  border-bottom: 1px solid $heal-blue;
 }
 
 .card-body{

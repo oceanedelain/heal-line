@@ -1,68 +1,75 @@
 <div class="container" data-controller="timeline" data-timeline-focus-value="<%= params[:focus] %>">
   <div data-controller="refresh-list">
-    <ul class="timeline mt-4">
+    <div id="timelineForm" class="mb-3">
+      <h3 class="blue-title text-center">Ma Timeline</h3>
+   
 
-      <div class="pt-2">
-        <%= form_with url: timeline_path, class:"flex position-relative pt-2",method: :get, html: { class: 'mb-5', data: { refresh_list_target: 'form' } } do |f| %>
-          <%= f.text_field :query,
-            id: 'input-search',
-            class: "form-control",
-            placeholder: "Rechercher...",
-            value: params[:query],
-            data: {
-                  refresh_list_target: 'searchInput',
-                  action: "keyup->refresh-list#update"
-                }
-          %>
-          <%= submit_tag "", class: "btn-search" %>
-        <% end %>
-      </div>
-
-
-      <div class="container my-2 flex justify-content-between p-0">
-      <%#= link_to "Timeline", timeline_path(choice: :all, query: params[:query]), class:"btn-timeline #{btn_active_class("all")}" %>
-      <%= link_to "Consultations", timeline_path(choice: params[:choice] == "consultation" ? :all : :consultation, query: params[:query]), class:"btn-timeline #{btn_active_class("consultation")}" %>
-      <%= link_to "Symptômes", timeline_path(choice: params[:choice] == "symptom" ? :all : :symptom, query: params[:query]), class:"pl-3 pr-3 btn-timeline #{btn_active_class("symptom")}" %>
-      <%= link_to new_consultation_path do %>
-        <%= image_tag 'plus2.png', class:'plus-small-btn' %>
-      <% end %>
-      </div>
+        <div class="pt-2">
+          <%= form_with url: timeline_path, class:"flex position-relative align-items-center justify-content-center pt-2",method: :get, html: { class: 'mb-5', data: { refresh_list_target: 'form' } } do |f| %>
+            <%= f.text_field :query,
+              id: 'input-search',
+              class: "form-control d-none",
+              placeholder: "Rechercher...",
+              value: params[:query],
+              data: {
+                    refresh_list_target: 'searchInput',
+                    action: "keyup->refresh-list#update"
+                  }
+            %>
+            <%= submit_tag "", class: "btn-search" %>
+          <% end %>
+        </div>
 
 
-<%# edit_consultation_path
-edit_symptom_path %>
+        <div class="cont-time container my-1 flex justify-content-between align-items-center p-0">
+          <p class="filter"><i class="fas fa-filter mr-2"></i></i>Filtrer par : </p>
+          <%#= link_to "Timeline", timeline_path(choice: :all, query: params[:query]), class:"btn-timeline #{btn_active_class("all")}" %>
+          <%= link_to "Consultations", timeline_path(choice: params[:choice] == "consultation" ? :all : :consultation, query: params[:query]), class:"btn-timeline #{btn_active_class("consultation")}" %>
+          <%= link_to "Symptômes", timeline_path(choice: params[:choice] == "symptom" ? :all : :symptom, query: params[:query]), class:"pl-3 pr-3 btn-timeline #{btn_active_class("symptom")}" %>
+          <%= link_to new_consultation_path do %>
+            <%= image_tag 'plus2.png', class:'plus-small-btn' %>
+          <% end %>
+        </div>
 
-    <div data-refresh-list-target="list">
-      <% @data.each do |item| %>
+      
 
-          <li class="timeline-card <%= past?(item) %> <%= data_type(item) %>" id="<%= dom_id(item) %>">
-              <div class="summary">
-                <div class="h2-edit">
-                  <h2><%= item.name %></h2>
-                  <%#= link_to edit_consultation_path(@consultation) do %>
-                    <%# <i class="fas fa-pencil-alt"></i> %>
-                  <%# end  %>
+
+    <div class="timeline-wrapper">
+      <ul class="timeline mt-4">
+
+        <div data-refresh-list-target="list">
+          <% @data.each do |item| %>
+
+              <li class="timeline-card <%= past?(item) %> <%= data_type(item) %>" id="<%= dom_id(item) %>">
+                  <div class="summary">
+                    <div class="h2-edit">
+                      <h2><%= item.name %></h2>
+                    </div>
+                      <p><%= item.description %></p>
+                  </div>
+
+                <div class="details">
+                  <p><%= item.notes %></p>
+                  <% if item.is_a? Consultation %>
+                    <%= link_to consultation_path(item), method: :delete, data: { confirm: "Are you sure ?"} do %>
+                      <i class="far fa-trash-alt poubelle"></i>
+                    <% end %>
+                  <% else %>
+                    <p><%= item.details %></p>
+                    <%= link_to symptom_path(item), method: :delete, data: { confirm: "Are you sure ?"} do %>
+                      <i class="far fa-trash-alt poubelle"></i>
+                    <% end %>
+                  <% end %>
                 </div>
-                  <p><%= item.description %></p>
-              </div>
-              <div class="details">
-                <p><%= item.notes %></p>
-                <% if item.is_a? Consultation %>
-                  <%= link_to item.details, profile_path %>
-                  <p class="supprimer" ><%= link_to "Supprimer", consultation_path(item), method: :delete, data: { confirm: "Are you sure ?"} %> <i class="far fa-trash-alt"></i></p>
-                <% else %>
-                  <p><%= item.details %></p>
-                  <p class="supprimer" ><%= link_to "Supprimer", symptom_path(item), method: :delete, data: { confirm: "Are you sure ?"} %> <i class="far fa-trash-alt"></i></p>
-                <% end %>
-              </div>
-            <p class="timeline-date"><%= item.at.strftime('%e %b') %></p>
-            <p class="timeline-year"><%= item.at.strftime('%Y') %></p>
-          </li>
-
-        <% end %>
-      </div>
-
-
-    </ul>
+                <p class="timeline-date"><%= item.at.strftime('%e %b') %></p>
+                <p class="timeline-year"><%= item.at.strftime('%Y') %></p>
+              </li>
+            <% end %>
+          </div>
+        </ul>
+       </div>
+     </div>
   </div>
 </div>
+
+
