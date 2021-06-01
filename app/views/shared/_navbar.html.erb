@@ -1,14 +1,16 @@
-<div class="navbar">
-  <div class="heal-line">
-    <%= link_to root_path do %>
-      <%= image_tag "white-caduceus.png", class: 'caduceus-img' %>
+<div  id="myHeader" class="sticky">
+  <div class="navbar">
+    <div class="heal-line">
+      <%= link_to root_path do %>
+        <%= image_tag "white-caduceus.png", class: 'caduceus-img' %>
+      <% end %>
+
+      <h1>Heal Line</h1>
+    </div>
+    <%= link_to profile_path, class:"lien-logo" do %>
+      <img class="logo avatar" src="https://avatars.githubusercontent.com/u/79912363?v=4">
     <% end %>
 
-    <h1>Heal Line</h1>
   </div>
-  <%= link_to profile_path, class:"lien-logo" do %>
-    <img class="logo avatar" src="https://avatars.githubusercontent.com/u/79912363?v=4">
-  <% end %>
-
 </div>
 
