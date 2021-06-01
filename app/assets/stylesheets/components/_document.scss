@@ -76,3 +76,28 @@
     flex-direction: column;
     justify-content: start;
 }
+
+.file-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(61, 76, 111, 0.55);
+  z-index: 999;
+  }
+
+.file-modal span {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  color: white;
+  z-index: 1000;
+}
+
+.img-document{
+  width: 90%;
+}
