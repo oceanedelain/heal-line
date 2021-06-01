@@ -30,7 +30,7 @@ export default class extends Controller {
       currentTarget.querySelector('.stroke').classList.add('active');
 
       // this.replaceConsultation(currentTarget);
-      this.fetchAppointment(currentTarget);
+      this.fetchConsultations(currentTarget);
     }
   }
 
@@ -44,7 +44,7 @@ export default class extends Controller {
   //     .then((data) => (this.circlesTarget.innerHTML = data.html));
   // }
 
-  async fetchAppointment(currentTarget) {
+  async fetchConsultations(currentTarget) {
     const ids = JSON.parse(currentTarget.dataset.consultationIds);
     // prettier-ignore
     const response = await fetch(`/fetch_consultations?consultation_ids=${ids}`, { Accept: 'application/json' });
