@@ -15,4 +15,11 @@ class User < ApplicationRecord
     consultations.upcoming.order(:at).first
   end
 
+  def consultation_day?(day)
+    Consultation.exists?(user: self, at: day.all_day)
+  end
+
+  def find_consultations(day)
+    consultations.where(at: day.all_day)
+  end
 end

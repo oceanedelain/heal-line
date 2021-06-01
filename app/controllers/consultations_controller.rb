@@ -43,6 +43,21 @@ class ConsultationsController < ApplicationController
     redirect_to timeline_path
   end
 
+  def fetch
+    @consultation = Consultation.find(params[:consultation_id])
+    skip_authorization
+
+    respond_to do |format|
+      format.json do
+        response = {
+          consultation: @consultation,
+          doctor: @consultation.doctor,
+          consultation_html: render_to_string(partial: "pages/consultation_circle", locals: { consultation: @consultation }, layout: false, formats: :html )
+         }
+        render json: response.to_json
+      end
+    end
+  end
 
   private
 

@@ -25,27 +25,6 @@
   }
 }
 
-.week-container{
-  justify-content: flex-start;
-  width: 92%;
-  overflow-x: auto;
-  align-items: center;
-  color: $heal-dark-grey;
-  margin-bottom: 50px;
-  margin-top: 10px;
-
-  >.day{
-  margin: 8px;
-  }
-
-  >.calendar {
-    position: absolute;
-    top: 89px;
-    right: 26px;
-  }
-
-}
-
 .today{
   background: $heal-blue;
   height: 32px;
