@@ -34,7 +34,7 @@
     height: 40px;
     width: 40px;
     border-radius: 50%;
-    border: 1px solid $heal-blue;
+    border: 3px solid $heal-blue;
   }
 
 
@@ -60,7 +60,7 @@
     height: 40px;
     width: 40px;
     border-radius: 50%;
-    border: 1px solid $heal-orange;
+    border: 3px solid $heal-orange;
   }
 }
 
@@ -117,4 +117,12 @@
 
 .fa-calendar-alt {
   font-size: 30px !important;
+}
+
+.btn-primary {
+  border-radius: 10px;
+}
+
+.btn-outline-primary{
+  border-radius: 10px;
 }
