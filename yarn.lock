@@ -6365,7 +6365,7 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
-swiper@^6.7.0:
+swiper@^6.5.8:
   version "6.7.0"
   resolved "https://registry.yarnpkg.com/swiper/-/swiper-6.7.0.tgz#ec971e703d03ef6196354140fbb22b074642bf5c"
   integrity sha512-zCfvWn7H7mCq7jgVurckhAwkjPUeMCkdC4rA7lagvaD3mIrNhKiaYYo2+nkxMVpiaWuCQ38e44Mya/dKb7HpyQ==
