@@ -3,9 +3,9 @@
 
   <% events.each do |event| %>
       <% if event.class.name == "Consultation" %>
-        <%= link_to "", timeline_path, class: "calendar-consultation" %>
+        <%= link_to "", timeline_path(focus: "consultation_#{event.id}"), class: "calendar-consultation" %>
       <% else %>
-        <%= link_to "", timeline_path, class: "calendar-symptom" %>
+        <%= link_to "", timeline_path(focus: "symptom_#{event.id}"), class: "calendar-symptom" %>
       <% end %>
   <% end %>
 <% end %>
