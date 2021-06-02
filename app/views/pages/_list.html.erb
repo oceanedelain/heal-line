@@ -1,4 +1,5 @@
 <% data.each do |item| %>
+  <%= item.description %>
   <li class="timeline-card <%= past?(item) %> <%= data_type(item) %>"
       id="<%= dom_id(item) %>"
       data-action="click->timeline#focus"

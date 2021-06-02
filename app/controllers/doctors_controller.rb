@@ -12,6 +12,7 @@ class DoctorsController < ApplicationController
     @doctor = Doctor.new(doctor_params)
     authorize(@doctor)
     if @doctor.save
+      Consultation.create(description: "First Contact", category: @doctor.specialty, at: Time.zone.now - 1.day, doctor: @doctor, user: current_user)
       flash[:notice] = "Mon docteur a bien été ajouté."
       redirect_to profile_path(@doctor)
     else
