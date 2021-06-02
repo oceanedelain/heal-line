@@ -19,9 +19,7 @@
   </div>
 
   <% if current_user && current_user.next_consultation&.soon? %>
-
-    <%= render "pages/consultation_circle", consultation: @consultation %>
-
+    <%= render "pages/circles", consultations: @consultations.values[0] %>
   <% else %>
 
     <div class="cercle-container flex column <%= circle_color %>">

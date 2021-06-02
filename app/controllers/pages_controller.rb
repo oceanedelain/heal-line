@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @scrolling_days = ((Date.today - 3.days)..(Date.today + 14.days)).to_a
-    @consultation = Consultation.where('at > ?', DateTime.now).first
+    @consultations = current_user.consultations_group_by_day
   end
 
   def timeline
