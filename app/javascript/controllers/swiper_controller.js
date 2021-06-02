@@ -6,14 +6,11 @@ export default class extends Controller {
   connect() {
     const options = {
       loop: false,
-      pagination: {
-        el: '.swiper-pagination',
-        dynamicBullets: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
+      allowSlidePrev: true,
+      allowSlideNext: true,
+      mousewheel: true,
+      keyboard: true,
+      slidesPerView: 1,
     };
 
 
