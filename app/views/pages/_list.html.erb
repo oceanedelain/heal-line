@@ -11,7 +11,7 @@
           <p>à <%= I18n.l(item.at.to_time, format: "%H:%M")%></p>
         </div>
       </div>
-      <div class="details flex justify-content-between">
+      <div class="details flex justify-content-between  align-items-end">
         <% if item.is_a? Consultation %>
         <p><%= link_to "Détails de mon rdv", consultation_path(item) %></p>
           <%= link_to consultation_path(item), method: :delete, data: { confirm: "Are you sure ?"} do %>
