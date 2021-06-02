@@ -1,5 +1,5 @@
 <% data.each do |item| %>
-  <%= item.description %>
+
   <li class="timeline-card <%= past?(item) %> <%= data_type(item) %>"
       id="<%= dom_id(item) %>"
       data-action="click->timeline#focus"
@@ -8,20 +8,21 @@
       <div class="summary">
         <div class="h2-edit">
           <h2><%= item.name %></h2>
-        </div>
-          <p><%= item.description %></p>
-        <div class="h2-edit">
-           <%= link_to item.doctor.name, profile_path if item.is_a? Consultation  %>
+          <p>à <%= I18n.l(item.at.to_time, format: "%H:%M")%></p>
         </div>
       </div>
-      <div class="details">
-        <p><%= item.notes %></p>
+      <div class="details flex justify-content-between  align-items-end">
         <% if item.is_a? Consultation %>
+        <p><%= link_to "Détails de mon rdv", consultation_path(item) %></p>
           <%= link_to consultation_path(item), method: :delete, data: { confirm: "Are you sure ?"} do %>
             <i class="far fa-trash-alt poubelle"></i>
           <% end %>
         <% else %>
-          <p><%= item.details %></p>
+          <div>
+            <p><%= item.zone%></p>
+            <p>intensité <%= item.intensity%>/10, pendant <%= item.duration%>h</p>
+            <p><%= item.notes%></p>
+          </div>
           <%= link_to symptom_path(item), method: :delete, data: { confirm: "Are you sure ?"} do %>
             <i class="far fa-trash-alt poubelle"></i>
           <% end %>
