@@ -1,0 +1,23 @@
+<div class="form-container">
+  <div class="row no-gutters mt-4">
+    <div class="container py-4 col-10">
+        <h2 class="blue-title text-center mb-4">RDV <%= @consultation.category %></h2>
+        <div class="text-left mb-4 show-consult">
+        <div class="flex"><i class="far fa-clock mr-2"></i> <p>Le <%= I18n.l(@consultation.at.to_date, format: :long)%> à <strong><%= I18n.l(@consultation.at.to_time, format: "%H:%M")%></strong>
+        <p></div>
+        <div class="flex"><i class="fas fa-user-md mr-2"></i> <p>Avec le Dr. <strong><%=@consultation.doctor.first_name%> <%=@consultation.doctor.last_name %></strong><p></div>
+        <div class="flex"><i class="fas fa-stethoscope mr-2"></i> <p>Pour: <%=@consultation.description %><p></div>
+        <div class="flex"><i class="fas fa-map-marker-alt mr-2"></i> <p>Adresse:
+        <%=@consultation.doctor.address %></p></div>
+        <div class="flex"><i class="fas fa-phone-alt mr-2"></i> <p>Joindre mon praticien : <%=@consultation.doctor.phone_number %>
+        <%=@consultation.doctor.email %></p></div>
+        <div class="flex"><i class="fas fa-quote-left mr-2"></i> <p>Mes notes : "<%=@consultation.notes %>"</p></div>
+        </div>
+
+        <div class="btn-validate">
+        <p class="btn-timeline btn-timeline-symptom" style="width: 180px">Lier un document</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
