@@ -1,7 +1,7 @@
 class DocumentsController < ApplicationController
 
   def index
-    @documents = policy_scope(Document).order(created_at: :desc)
+    @documents = policy_scope(Document).order(at: :desc)
 
     if params[:query].present?
       @documents = Document.search_by_attr(params[:query])
