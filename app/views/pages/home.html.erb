@@ -1,7 +1,7 @@
 <div class="column" data-controller="home">
   <div class="week-container flex">
     <div class="calendar">
-      <%= link_to 'Calendrier', consultations_path %>
+      <%= link_to ('<i class="far fa-calendar-alt"></i>').html_safe, consultations_path  %>
     </div>
     <% @scrolling_days.each do |day| %>
       <div class="day column position-relative"
@@ -19,9 +19,11 @@
   </div>
 
   <% if current_user && current_user.next_consultation&.soon? %>
-
-    <%= render "pages/consultation_circle", consultation: @consultation %>
-
+  <div id="swiper" data-controller="swiper" class="swiper-container">
+    <div class="swiper-wrapper" data-home-target="circles">
+      <%= render "pages/circles", consultations: @consultations.values[0] %>
+    </div>
+  </div>
   <% else %>
 
     <div class="cercle-container flex column <%= circle_color %>">
@@ -40,16 +42,7 @@
     </div>
 
   <% end %>
+  <%= link_to new_consultation_path, class:"position-relative" do %>
+    <%= image_tag 'plus.png', class:'plus-btn' %>
+  <% end %>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-<%# current_user.next_consultation.doctor %>

@@ -1,11 +1,10 @@
 <div class="simple-calendar">
   <div class="d-flex align-items-center justify-content-between">
     <div class="calendar-heading my-2">
-      <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: 'btn btn-outline-primary' %>
+      <%= link_to t('simple_calendar.previous', default: '<<'), calendar.url_for_previous_view, class: 'btn btn-outline-primary' %>
       <span class="calendar-title btn btn-primary"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
-      <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: 'btn btn-outline-primary' %>
+      <%= link_to t('simple_calendar.next', default: '>>'), calendar.url_for_next_view, class: 'btn btn-outline-primary' %>
     </div>
-    <%= link_to 'Ajouter une consultation', new_consultation_path, class: ' btn-blue' %>
   </div>
 
   <table class="table table-striped">
@@ -21,12 +20,18 @@
       <% date_range.each_slice(7) do |dates| %>
         <tr>
           <% dates.each do |date| %>
-            <%= content_tag :td, class: calendar.td_classes_for(date) do %>
-              <% passed_block.call date.day, sorted_events.fetch(date, []) %>
+            <%= content_tag(:td, class: calendar.td_classes_for(date)) do %>
+              <%= content_tag(:div, class: "heal-day") do %>
+                <% passed_block.call date.day, sorted_events.fetch(date, []) %>
+              <% end %>
             <% end %>
           <% end %>
         </tr>
       <% end %>
     </tbody>
   </table>
+
+  <%= link_to new_consultation_path, class: "timeline-add" do %>
+    <%= image_tag 'plus2.png', class:'plus-small-btn' %>
+  <% end %>
 </div>

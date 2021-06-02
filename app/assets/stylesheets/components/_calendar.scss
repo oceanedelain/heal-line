@@ -1,9 +1,12 @@
 .simple-calendar {
-  table {
-    min-height: 80vh;
-  }
   .today {
     background-color: $heal-light-grey;
+  }
+
+  .calendar-heading {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
   }
 
   .consultation {
@@ -18,4 +21,93 @@
     background: $heal-orange;
     color: white;
   }
+
+  .calendar-symptom {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 1px solid $heal-blue;
+  }
+
+
+  .simple-calendar .day.today .heal-day {
+    background-color: $heal-blue;
+    border-radius: 50%;
+  }
+
+  .prev-month,
+  .next-month {
+    color: lightgray;
+  }
+
+  .prev-month .calendar-symptom,
+  .next-month .calendar-symptom,
+  .prev-month .calendar-consultation,
+  .next-month .calendar-consultation {
+    opacity: 0.5;
+  }
+
+  .calendar-consultation {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 1px solid $heal-orange;
+  }
+}
+
+.simple-calendar {
+  .day {
+    background-color: $light-gray;
+    height: auto;
+    vertical-align:middle;
+    .heal-day {
+      height: 40px;
+      width: 40px;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  table {
+    border: none;
+    height: 45vh;
+  }
+  td {
+    border: none;
+  }
+  th {
+    border: none;
+    text-align: center;
+  }
+  thead {
+    th {
+      border: none;
+    }
+  }
+}
+
+.fa-calendar-alt {
+  color: $heal-orange;
+  margin-bottom: 6px;
+
+  .consultation {
+    color: white;
+    padding: 8px 24px;
+    border-radius: 4px;
+    background: $heal-blue;
+    transition: background 0.3s ease;
+  }
+
+  .consultation:hover {
+    background: $heal-orange;
+    color: white;
+  }
+}
+
+.fa-calendar-alt {
+  font-size: 30px !important;
 }

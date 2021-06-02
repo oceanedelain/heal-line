@@ -4,6 +4,9 @@ class ConsultationsController < ApplicationController
     start_date = params.fetch(:start_date, Date.today).to_date
     @consultations = policy_scope(Consultation).order(created_at: :desc)
     @consultations = @consultations.where(at: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
+    @symptoms = policy_scope(Symptom).order(created_at: :desc)
+    @symptoms = @symptoms.where(at: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
+    @events = @consultations + @symptoms
   end
 
   def new
@@ -50,15 +53,17 @@ class ConsultationsController < ApplicationController
   end
 
   def fetch
-    @consultation = Consultation.find(params[:consultation_id])
+    ids = params[:consultation_ids].split(',').map(&:to_i)
+    @consultations = Consultation.where(id: ids)
+
+    # require 'pry-byebug'; binding.pry
     skip_authorization
 
     respond_to do |format|
       format.json do
         response = {
-          consultation: @consultation,
-          doctor: @consultation.doctor,
-          consultation_html: render_to_string(partial: "pages/consultation_circle", locals: { consultation: @consultation }, layout: false, formats: :html )
+          consultations: @consultations,
+          html: render_to_string(partial: "pages/circles", locals: { consultations: @consultations }, layout: false, formats: :html)
          }
         render json: response.to_json
       end

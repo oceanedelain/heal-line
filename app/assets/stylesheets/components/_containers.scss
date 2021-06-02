@@ -22,7 +22,14 @@
   >.black-p{
     color: rgb(37, 37, 94);
     font-weight: 600;
+    text-transform: uppercase;
   }
+
+  p  {
+    margin-bottom: 0;
+    line-height: 22px;
+  }
+
 }
 
 .today{
@@ -47,10 +54,12 @@
 
 .info-rdv{
   text-align: left;
-  padding: 10px;
+  padding: 0 10px;
+  width: 90%;
 
-  >p{
-    line-height: 1.2em;
+  > div {
+    align-items: center;
+    margin-bottom: 18px;
   }
 }
 

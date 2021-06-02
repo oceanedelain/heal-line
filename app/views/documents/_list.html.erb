@@ -1,0 +1,23 @@
+<% documents.each do |document| %>
+    <div class="document" data-controller="lightbox">
+      <li class="document-card" data-action="click->lightbox#show">
+        <div class="summary">
+          <h2><%= document.name.capitalize %></h2>
+          <p><%= document.document_type %></p>
+          <p><%= document.notes %></p>
+
+          <div class="file-modal d-none" data-lightbox-target="modal">
+            <span data-action="click->lightbox#hide">
+              <i class="fas fa-times"></i>
+            </span>
+            <%= cl_image_tag document.file.key, class:"img-document" %>
+          </div>
+        </div>
+          <p class="document-date"><%= document.at.strftime('%e %b') %></p>
+          <p class="document-year"><%= document.at.strftime('%Y') %></p>
+          <div class="small-icons">
+          <i class="far fa-eye"></i>
+        </div>
+      </li>
+    </div>
+  <% end %>

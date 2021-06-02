@@ -1,28 +1,30 @@
-<div class="container mt-5">
+<div class="container mt-5" data-controller="search">
   <%= link_to new_document_path  do %>
     <%= image_tag 'plus2.png', class:'add-btn' %>
   <% end %>
-  <% @documents.each do |document| %>
-    <div class="document" data-controller="lightbox">
-      <li class="document-card" data-action="click->lightbox#show">
-        <div class="summary">
-          <h2><%= document.name.capitalize %></h2>
-          <p><%= document.document_type %></p>
-          <p><%= document.notes %></p>
+  <div>
+    <div id="timelineForm" class="mb-3">
+      <h3 class="blue-title text-center">Mes Documents</h3>
+      <div class="pt-2">
+        <%= form_with url: documents_path, class:"flex position-relative align-items-center justify-content-center pt-2",method: :get, html: { autocomplete: 'off', class: 'flex justify-content-center align-items-center', data: { search_target: 'form' } } do |f| %>
+            <%= f.text_field :query,
+              id: 'input-search',
+              class: "form-control",
+              placeholder: "Rechercher...",
+              value: params[:query],
+              data: {
+                    search_target: 'input',
+                    action: "keyup->search#searchDoc"
+                  }
+            %>
+            <%= submit_tag "", class: "btn-search" %>
+        <% end %>
+      </div>
 
-          <div class="file-modal d-none" data-lightbox-target="modal">
-            <span data-action="click->lightbox#hide">
-              <i class="fas fa-times"></i>
-            </span>
-            <%= cl_image_tag document.file.key, class:"img-document" %>
-          </div>
-        </div>
-          <p class="document-date"><%= document.at.strftime('%e %b') %></p>
-          <p class="document-year"><%= document.at.strftime('%Y') %></p>
-          <div class="small-icons">
-          <i class="far fa-eye"></i>
-        </div>
-      </li>
     </div>
-  <% end %>
+  </div>
+  <div data-search-target="documents">
+    <%= render 'list', documents: @documents %>
+  </div>
 </div>
+

@@ -1,6 +1,6 @@
 class Symptom < ApplicationRecord
   belongs_to :user
-  has_many :documents
+  has_many :documents, dependent: :destroy
 
   include PgSearch::Model
   multisearchable against: [:name, :zone, :notes]

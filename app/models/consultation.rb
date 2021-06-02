@@ -1,7 +1,7 @@
 class Consultation < ApplicationRecord
   belongs_to :user
   belongs_to :doctor, optional: true
-  has_many :documents
+  has_many :documents, dependent: :destroy
 
   scope :upcoming, -> { where('at > ?', Date.today) }
   scope :past, -> { where('at < ?', Date.today) }
