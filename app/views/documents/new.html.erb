@@ -3,7 +3,7 @@
 <div class="form-container">
   <div class="row no-gutters mt-4">
     <div class="container py-4 col-10">
-      <h2 class="blue-title text-center mb-4">Ajouter un document</h2>
+      <h2 class="blue-title text-center mt-4 mb-4">Ajouter un document</h2>
       <%= simple_form_for @document do |f| %>
         <%= f.input :at, as: :string, :label => "Date du document :",input_html: {class: "datepicker"},placeholder: '...' %>
         <%= f.input :name, :label => "Nom du document :", placeholder: '....' %>
