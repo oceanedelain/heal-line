@@ -1,19 +1,30 @@
-import { Controller } from "stimulus"
+import { Controller } from 'stimulus';
 
 export default class extends Controller {
-  static targets = ['stroke', 'circles']
+  static targets = ['stroke', 'circles'];
 
   initialize() {
-    this.observer = new IntersectionObserver(this.manageObservables.bind(this), { rootMargin: '-160px' })
+    this.observer = new IntersectionObserver(
+      this.manageObservables.bind(this),
+      { rootMargin: '-160px' }
+    );
     this.strokeTargets.forEach((item) => this.observer.observe(item));
   }
 
-  center({currentTarget}) {
+  connect() {
+    this.element.querySelector('[data-consultation="true"]').click();
+  }
+
+  center({ currentTarget }) {
     if (currentTarget.dataset.consultation === 'true') {
-      currentTarget.scrollIntoView({ behavior: "smooth", block: "start", inline: "center" });
-      this.strokeTargets.forEach(item => item.classList.remove('active'))
+      currentTarget.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'center',
+      });
+      this.strokeTargets.forEach((item) => item.classList.remove('active'));
       currentTarget.querySelector('.stroke').classList.add('active');
-      this.fetchAppointment(currentTarget);
+      this.fetchConsultations(currentTarget);
       // this.replaceConsultation(currentTarget)
     }
   }
@@ -45,10 +56,13 @@ export default class extends Controller {
   //   .then(data => this.consultationCircleTarget.outerHTML = data.consultation_html)
   // }
 
-  async fetchAppointment(currentTarget) {
-    const ids = JSON.parse(currentTarget.dataset.consultationIds)
-    const response = await fetch(`/fetch_consultation?consultation_ids=${ids}`, { 'Accept': "application/json" });
+  async fetchConsultations(currentTarget) {
+    const ids = JSON.parse(currentTarget.dataset.consultationIds);
+    const response = await fetch(
+      `/fetch_consultation?consultation_ids=${ids}`,
+      { Accept: 'application/json' }
+    );
     const data = await response.json();
-    this.circlesTarget.innerHTML = data.html
+    this.circlesTarget.innerHTML = data.html;
   }
 }
