@@ -1,22 +1,15 @@
-import { Controller } from "stimulus"
-import Swiper from "swiper"
-import 'swiper/swiper-bundle.css';
+import { Controller } from 'stimulus';
+import Swiper from 'swiper';
 
 export default class extends Controller {
   connect() {
-    const options = {
+    console.log('swiper connect');
+    new Swiper(this.element, {
+      // Default parameters
       loop: false,
-      pagination: {
-        el: '.swiper-pagination',
-        dynamicBullets: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    };
-
-
-    new Swiper('#swiper', options);
+      mousewheel: true,
+      keyboard: true,
+      slidesPerView: 1,
+    });
   }
 }

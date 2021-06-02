@@ -19,11 +19,7 @@
   </div>
 
   <% if current_user && current_user.next_consultation&.soon? %>
-  <div id="swiper" data-controller="swiper" class="swiper-container">
-    <div class="swiper-wrapper" data-home-target="circles">
-      <%= render "pages/circles", consultations: @consultations.values[0] %>
-    </div>
-  </div>
+    <%= render "pages/circles", consultations: @consultations.values[0] %>
   <% else %>
 
     <div class="cercle-container flex column <%= circle_color %>">
