@@ -2,8 +2,6 @@
   .today {
     background-color: $heal-light-grey;
   }
-}
-
 
 .calendar-heading {
   display: flex;
@@ -94,4 +92,18 @@
 .fa-calendar-alt {
   color: $heal-orange;
   margin-bottom: 6px;
+
+  .consultation {
+    color: white;
+    padding: 8px 24px;
+    border-radius: 4px;
+    background: $heal-blue;
+    transition: background 0.3s ease;
+  }
+
+  .consultation:hover {
+    background: $heal-orange;
+    color: white;
+  }
+
 }

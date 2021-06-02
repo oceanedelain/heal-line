@@ -15,6 +15,7 @@ class SymptomsController < ApplicationController
     @symptom.user = current_user
 
     if @symptom.save
+      flash[:notice] = "Mon symptôme a bien été ajouté."
       redirect_to timeline_path(anchor: "symptom_#{@symptom.id}", params: { choice: 'symptom', focus: "symptom_#{@symptom.id}" })
     else
       render :new
@@ -29,6 +30,7 @@ class SymptomsController < ApplicationController
   def update
     @symptom.update(symptom_params)
     authorize(@symptom)
+    flash[:notice] = "Mon symptôme a bien été édité."
     redirect_to timeline_path
   end
 

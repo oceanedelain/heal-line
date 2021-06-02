@@ -3,7 +3,7 @@
     <div id="timelineForm" class="mb-3">
       <h3 class="blue-title text-center">Ma Timeline</h3>
       <div class="pt-2">
-        <%= form_with url: timeline_path, class:"flex position-relative align-items-center justify-content-center pt-2",method: :get, html: { class: 'mb-5', data: { search_target: 'form' } } do |f| %>
+        <%= form_with url: timeline_path, class:"flex position-relative align-items-center justify-content-center pt-2",method: :get, html: { class: 'flex justify-content-center align-items-center', data: { search_target: 'form' } } do |f| %>
             <%= f.text_field :query,
               id: 'input-search',
               class: "form-control",
