@@ -7,6 +7,6 @@ export default class extends Controller {
     new Swiper(this.element, {
       // Default parameters
       loop: false,
-    };
+    });
   }
 }
