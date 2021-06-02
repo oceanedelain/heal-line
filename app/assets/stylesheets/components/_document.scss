@@ -101,3 +101,14 @@
 .img-document{
   width: 90%;
 }
+
+
+#documents-index .add-btn{
+  width: 60px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.20);
+  border-radius: 50%;
+  position: fixed;
+  bottom: 85px;
+  right: 12px;
+  z-index: 2;
+}

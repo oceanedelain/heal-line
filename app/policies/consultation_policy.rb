@@ -13,6 +13,10 @@ class ConsultationPolicy < ApplicationPolicy
     return true
   end
 
+  def show?
+    return true
+  end
+
   def edit?
     return create?
   end

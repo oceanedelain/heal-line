@@ -1,4 +1,7 @@
 <div class="container mt-5">
+  <%= link_to new_document_path  do %>
+    <%= image_tag 'plus2.png', class:'add-btn' %>
+  <% end %>
   <% @documents.each do |document| %>
     <div class="document" data-controller="lightbox">
       <li class="document-card" data-action="click->lightbox#show">
