@@ -20,7 +20,6 @@
     </div>
     <div class="cont-time container my-1 flex justify-content-between align-items-center p-0">
       <%#= link_to "Timeline", timeline_path(choice: :all, query: params[:query]), class:"btn-timeline #{btn_active_class("all")}" %>
-
       <p class="filter"><i class="fas fa-filter mr-2"></i></i>Filtrer par : </p>
       <%= link_to "Consultations", timeline_path(choice: params[:choice] == "consultation" ? :all : :consultation, query: params[:query]), class:"btn-timeline btn-timeline-consultation #{btn_active_class("consultation")}" %>
       <%= link_to "Symptômes", timeline_path(choice: params[:choice] == "symptom" ? :all : :symptom, query: params[:query]), class:"pl-3 pr-3 btn-timeline btn-timeline-symptom #{btn_active_class("symptom")}" %>
@@ -28,7 +27,6 @@
         <%= image_tag 'plus2.png', class:'plus-small-btn' %>
       <% end %>
     </div>
-
     <div class="timeline-wrapper">
       <ul class="timeline mt-4">
         <div data-search-target="list">
@@ -38,5 +36,21 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
