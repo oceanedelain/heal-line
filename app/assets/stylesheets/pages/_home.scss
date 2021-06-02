@@ -1,0 +1,35 @@
+.week-container {
+  justify-content: flex-start;
+  width: 92%;
+  overflow-x: auto;
+  align-items: center;
+  color: $heal-dark-grey;
+  padding-bottom: 50px;
+  margin-top: 40px;
+
+  >.day{
+  margin: 8px;
+  }
+
+  >.calendar {
+    position: absolute;
+    top: 89px;
+    right: 26px;
+  }
+
+  .stroke {
+    transform: translateX(-50%);
+    left: 50%;
+    top: 100%;
+    position: absolute;
+    background-color: $heal-orange;
+    width: 3px;
+    // height: 0px;
+    transition: all 1s ease-out;
+  }
+
+  .stroke.active {
+    height: 70px !important;
+  }
+
+}
