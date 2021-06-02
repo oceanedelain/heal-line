@@ -1,5 +1,5 @@
 <div class="swiper-slide">
-  <div class="cercle-container flex column <%= circle_color %>">
+  <div class="cercle-container flex column animate__animated animate__heartbeat <%= circle_color %>">
     <h3 class="mt-1"><%= consultation.category %></h3>
     <h5 class="black-p"><%= consultation.at.strftime("%e %b, %l:%M")%></h5>
     <div class="info-rdv">
@@ -16,8 +16,8 @@
         <p class="text-center"><i class="fas fa-pencil-alt"></i></p>
       <% end  %>
     </div>
-    <%= link_to new_consultation_path do %>
-      <%= image_tag 'plus.png', class:'plus-btn' %>
-    <% end %>
   </div>
+  <%= link_to new_consultation_path do %>
+    <%= image_tag 'plus.png', class:'plus-btn' %>
+  <% end %>
 </div>
