@@ -27,9 +27,9 @@ lucas = Doctor.create!(first_name: "Anne", last_name: "Lucas", specialty: "Derma
 
 puts "Doctors created, now create user"
 
-jean = User.new(first_name: "Jean", last_name: "Dumas", email: "jean@gmail.com", password: "jean@gmail.com", gender: "Masculin", birth_date: Date.new(1990,05,20), ssn: "19075123854372", phone_number: "0618374635", address: "16 rue Villa Guadelet, 75011 Paris", blood_group: "A+", height: "185", weight: "80", allergies: "Pollen, Nickel", treatments: "Actifed allergie")
-file = URI.open('https://res.cloudinary.com/di1e8ocfv/image/upload/v1622637116/1622636894402_hntrsf.jpg')
-jean.avatar.attach(io: file, filename: 'jean.jpg', content_type: 'image/jpg')
+jean = User.new(first_name: "Oceane", last_name: "Delain", email: "oceane@gmail.com", password: "oceane@gmail.com", gender: "Féminin", birth_date: Date.new(1990,05,20), ssn: "29075123854372", phone_number: "0618374635", address: "16 rue Villa Guadelet, 75011 Paris", blood_group: "A+", height: "170", weight: "54", allergies: "Pollen, Nickel", treatments: "Actifed allergie")
+file = URI.open('https://res.cloudinary.com/di1e8ocfv/image/upload/v1622648156/portrait_frx0ei.jpg')
+jean.avatar.attach(io: file, filename: 'oceane.jpg', content_type: 'image/jpg')
 jean.save!
 
 puts "User created, now create consultations"
@@ -49,7 +49,7 @@ consultation.user = jean
 consultation.doctor = vincent
 consultation.save!
 
-consultation = Consultation.new(description: "Allergies", category: "Généraliste", at: DateTime.parse("10/06/2021 09:00"), notes: "Apporter mes résultats d'analyses")
+consultation = Consultation.new(description: "Allergies", category: "Généraliste", at: DateTime.parse("10/06/2021 09:00"), notes: "Apporter ma radio")
 consultation.user = jean
 consultation.doctor = durand
 consultation.save!
