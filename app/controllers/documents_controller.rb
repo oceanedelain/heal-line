@@ -2,6 +2,15 @@ class DocumentsController < ApplicationController
 
   def index
     @documents = policy_scope(Document).order(created_at: :desc)
+
+    if params[:query].present?
+      @documents = Document.search_by_attr(params[:query])
+    end
+
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: 'list.html', locals: { documents: @documents } }
+    end
   end
 
   def new
