@@ -5,9 +5,9 @@
     </div>
     <% @scrolling_days.each do |day| %>
       <div class="day column position-relative"
-           data-action="click->home#center"
-           data-consultation="<%= current_user.consultation_day?(day)%>"
-           data-consultation-ids="<%= current_user.find_consultations(day).pluck(:id).to_json %>">
+          data-action="click->home#center"
+          data-consultation="<%= current_user.consultation_day?(day)%>"
+          data-consultation-ids="<%= current_user.find_consultations(day).pluck(:id).to_json %>">
 
         <%=  I18n.l(day, format: "%a").capitalize %>
         <div class="<%= 'today' if day == Date.today %>  <%= 'rdv-day' if current_user.consultation_day?(day) %>">
@@ -28,16 +28,12 @@
         <h3>Prochain rdv</h3>
         <p class="black-p"><%= I18n.l(@consultation.at, format: :long)%> - <%= @consultation.category%></p>
       <p><%= random_conseil %></p>
-      <%= link_to edit_consultation_path(@consultation) do %>
-        <i class="fas fa-pencil-alt"></i>
-      <% end  %>
-      <%= link_to new_consultation_path do %>
-        <%= image_tag 'plus.png', class:'plus-btn' %>
-      <% end %>
+      <#%= link_to "Détails", consultation_path(@consultation) %>
       <% end %>
     </div>
 
   <% end %>
+
   <%= link_to new_consultation_path, class:"position-relative" do %>
     <%= image_tag 'plus.png', class:'plus-btn' %>
   <% end %>
