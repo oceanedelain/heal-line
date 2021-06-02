@@ -1,7 +1,3 @@
-<div id="swiper" data-controller="swiper" class="swiper-container">
-  <div class="swiper-wrapper" data-home-target="circles">
-    <% consultations.each do |consultation| %>
-      <%= render 'pages/circle', consultation: consultation %>
-    <% end %>
-  </div>
-</div>
+<% consultations.each do |consultation| %>
+  <%= render 'pages/circle', consultation: consultation %>
+<% end %>

@@ -19,7 +19,11 @@
   </div>
 
   <% if current_user && current_user.next_consultation&.soon? %>
-    <%= render "pages/circles", consultations: @consultations.values[0] %>
+  <div id="swiper" data-controller="swiper" class="swiper-container">
+    <div class="swiper-wrapper" data-home-target="circles">
+      <%= render "pages/circles", consultations: @consultations.values[0] %>
+    </div>
+  </div>
   <% else %>
 
     <div class="cercle-container flex column <%= circle_color %>">
@@ -37,6 +41,9 @@
       <% end %>
     </div>
 
+  <% end %>
+  <%= link_to new_consultation_path, class:"position-relative" do %>
+    <%= image_tag 'plus.png', class:'plus-btn' %>
   <% end %>
 </div>
 
