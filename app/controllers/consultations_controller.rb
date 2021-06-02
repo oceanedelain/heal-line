@@ -30,6 +30,7 @@ class ConsultationsController < ApplicationController
   end
 
   def update
+    @consultation = Consultation.find(params[:id])
     @consultation.update(consultation_params)
     authorize(@consultation)
     flash[:notice] = "Ma consultation a bien été éditée."

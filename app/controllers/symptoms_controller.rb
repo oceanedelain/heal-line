@@ -28,6 +28,7 @@ class SymptomsController < ApplicationController
   end
 
   def update
+    @symptom = Symptom.find(params[:id])
     @symptom.update(symptom_params)
     authorize(@symptom)
     flash[:notice] = "Mon symptôme a bien été édité."

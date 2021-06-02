@@ -7,7 +7,8 @@ class Consultation < ApplicationRecord
   scope :past, -> { where('at < ?', Date.today) }
 
   include PgSearch::Model
-  multisearchable against: [:notes, :description, :category]
+  multisearchable against: [:notes, :description, :category],
+                  unless: :first_contact?
 
   def name
     category
@@ -23,5 +24,9 @@ class Consultation < ApplicationRecord
 
   def past?
     'past' if self.at < Date.today
+  end
+
+  def first_contact?
+    description == "First Contact"
   end
 end
