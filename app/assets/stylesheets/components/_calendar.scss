@@ -3,57 +3,58 @@
     background-color: $heal-light-grey;
   }
 
-.calendar-heading {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
+  .calendar-heading {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
 
-.consultation {
-  color: white;
-  padding: 8px 24px;
-  border-radius: 4px;
-  background: $heal-blue;
-  transition: background 0.3s ease;
-}
+  .consultation {
+    color: white;
+    padding: 8px 24px;
+    border-radius: 4px;
+    background: $heal-blue;
+    transition: background 0.3s ease;
+  }
 
-.consultation:hover {
-  background: $heal-orange;
-  color: white;
-}
+  .consultation:hover {
+    background: $heal-orange;
+    color: white;
+  }
 
-.calendar-symptom {
-  position: absolute;
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  border: 1px solid $heal-blue;
-}
+  .calendar-symptom {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 1px solid $heal-blue;
+  }
 
 
-.simple-calendar .day.today .heal-day {
-  background-color: $heal-blue;
-  border-radius: 50%;
-}
+  .simple-calendar .day.today .heal-day {
+    background-color: $heal-blue;
+    border-radius: 50%;
+  }
 
-.prev-month,
-.next-month {
-  color: lightgray;
-}
+  .prev-month,
+  .next-month {
+    color: lightgray;
+  }
 
-.prev-month .calendar-symptom,
-.next-month .calendar-symptom,
-.prev-month .calendar-consultation,
-.next-month .calendar-consultation {
-  opacity: 0.5;
-}
+  .prev-month .calendar-symptom,
+  .next-month .calendar-symptom,
+  .prev-month .calendar-consultation,
+  .next-month .calendar-consultation {
+    opacity: 0.5;
+  }
 
-.calendar-consultation {
-  position: absolute;
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  border: 1px solid $heal-orange;
+  .calendar-consultation {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 1px solid $heal-orange;
+  }
 }
 
 .simple-calendar {
@@ -105,5 +106,5 @@
     background: $heal-orange;
     color: white;
   }
-
 }
+
