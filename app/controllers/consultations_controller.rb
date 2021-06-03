@@ -27,6 +27,11 @@ class ConsultationsController < ApplicationController
     end
   end
 
+  def show
+    @consultation = Consultation.find(params[:id])
+    authorize(@consultation)
+  end
+
   def edit
     @consultation = Consultation.find(params[:id])
     authorize(@consultation)

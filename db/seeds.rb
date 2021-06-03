@@ -27,9 +27,9 @@ lucas = Doctor.create!(first_name: "Anne", last_name: "Lucas", specialty: "Derma
 
 puts "Doctors created, now create user"
 
-jean = User.new(first_name: "Jean", last_name: "Dumas", email: "jean@gmail.com", password: "jean@gmail.com", gender: "Masculin", birth_date: Date.new(1990,05,20), ssn: "19075123854372", phone_number: "0618374635", address: "16 rue Villa Guadelet, 75011 Paris", blood_group: "A+", height: "185", weight: "80", allergies: "Pollen, Nickel", treatments: "Actifed allergie")
-file = URI.open('https://res.cloudinary.com/di1e8ocfv/image/upload/v1621590954/jean_1_q38kqw.jpg')
-jean.avatar.attach(io: file, filename: 'jean.jpg', content_type: 'image/jpg')
+jean = User.new(first_name: "Oceane", last_name: "Delain", email: "oceane@gmail.com", password: "oceane@gmail.com", gender: "Féminin", birth_date: Date.new(1990,05,20), ssn: "29075123854372", phone_number: "0618374635", address: "16 rue Villa Guadelet, 75011 Paris", blood_group: "A+", height: "170", weight: "54", allergies: "Pollen, Nickel", treatments: "Actifed allergie")
+file = URI.open('https://res.cloudinary.com/di1e8ocfv/image/upload/v1622648156/portrait_frx0ei.jpg')
+jean.avatar.attach(io: file, filename: 'oceane.jpg', content_type: 'image/jpg')
 jean.save!
 
 puts "User created, now create consultations"
@@ -49,27 +49,68 @@ consultation.user = jean
 consultation.doctor = vincent
 consultation.save!
 
-consultation = Consultation.new(description: "Allergies", category: "Généraliste", at: DateTime.parse("10/06/2021 09:00"), notes: "Apporter mes résultats d'analyses")
+consultation = Consultation.new(description: "Allergies", category: "Généraliste", at: DateTime.parse("10/06/2021 09:00"), notes: "Apporter ma radio")
 consultation.user = jean
 consultation.doctor = durand
 consultation.save!
 
-consultation = Consultation.new(description: "Rendez-vous de suivi", category: "Gastro-entérologie", at: DateTime.parse("18/06/2021 19:00"))
+consultation = Consultation.new(description: "Rendez-vous de suivi", category: "Gastro-entérologie", at: DateTime.parse("10/06/2021 19:00"), notes: "Manger léger")
+consultation.user = jean
+consultation.doctor = nour
+consultation.save!
+
+consultation = Consultation.new(description: "Soin détartrage", category: "Dentiste", at: DateTime.parse("07/06/2021 17:30"))
+consultation.user = jean
+consultation.doctor = vincent
+consultation.save!
+
+consultation = Consultation.new(description: "Vaccin 1ère dose", category: "Généraliste", at: DateTime.parse("11/06/2021 11:00"), notes: "Etre à jeun")
 consultation.user = jean
 consultation.doctor = durand
 consultation.save!
+
+consultation = Consultation.new(description: "Vaccin 2ème dose", category: "Généraliste", at: DateTime.parse("19/07/2021 11:00"), notes: "Etre à jeun")
+consultation.user = jean
+consultation.doctor = durand
+consultation.save!
+
+consultation = Consultation.new(description: "Blanchiment des dents", category: "Dentiste", at: DateTime.parse("22/07/2021 14:30"))
+consultation.user = jean
+consultation.doctor = vincent
+consultation.save!
+
 
 puts "Consultations created, now create symptoms"
+
+symptom = Symptom.new(at: DateTime.parse("01/01/2021 14:00"), name: "Migraine", zone: "Tête", notes: "Migraine avec perte de vision, nausées et perte d'équilibre", intensity: 8, duration: 7)
+symptom.user = jean
+symptom.save!
+
+symptom = Symptom.new(at: DateTime.parse("04/01/2021 15:00"), name: "Tendinite", zone: "Bras", notes: "Après deux heures de tennis", intensity: 4, duration: 4)
+symptom.user = jean
+symptom.save!
+
+symptom = Symptom.new(at: DateTime.parse("23/02/2021 14:00"), name: "Migraine", zone: "Tête", notes: "Petite migraine d'après soirée", intensity: 2, duration: 3)
+symptom.user = jean
+symptom.save!
+
+symptom = Symptom.new(at: DateTime.parse("10/03/2021 15:00"), name: "Courbatures", zone: "Bras", notes: "Retour de ma tendinite ou courbatures ?", intensity: 3, duration: 2)
+symptom.user = jean
+symptom.save!
+
+symptom = Symptom.new(at: DateTime.parse("01/04/2021 10:00"), name: "Démangeaisons", zone: "Yeux", notes: "Oeil droit très sec", intensity: 2, duration: 6)
+symptom.user = jean
+symptom.save!
 
 symptom = Symptom.new(at: DateTime.parse("10/04/2021 07:00"), name: "Migraine", zone: "Tête", notes: "Sensation de marteau qui tape dans ma tête et je ne supporte ni les écrans, ni la lumière", intensity: 5, duration: 3)
 symptom.user = jean
 symptom.save!
 
-symptom = Symptom.new(at: DateTime.parse("05/05/2021 10:12"), name: "Migraine", zone: "Tête", notes: "Des nausées et des vertiges se sont ajoutés aux sensations", intensity: 5, duration: 4)
+symptom = Symptom.new(at: DateTime.parse("04/05/2021 10:12"), name: "Migraine", zone: "Tête", notes: "Des nausées et des vertiges se sont ajoutés aux sensations habituelles", intensity: 5, duration: 4)
 symptom.user = jean
 symptom.save!
 
-symptom = Symptom.new(at: DateTime.parse("15/05/2021 19:00"), name: "Ballonnements", zone: "Ventre", notes: "Ventre gonflé et beaucoup de gaz. Mal à digérer", intensity: 4, duration: 6)
+symptom = Symptom.new(at: DateTime.parse("15/05/2021 19:00"), name: "Ballonnements", zone: "Ventre", notes: "Ventre gonflé et du mal à digérer", intensity: 4, duration: 6)
 symptom.user = jean
 symptom.save!
 
@@ -77,7 +118,7 @@ symptom = Symptom.new(at: DateTime.parse("21/05/2021 03:35"), name: "Courbatures
 symptom.user = jean
 symptom.save!
 
-symptom = Symptom.new(at: DateTime.parse("25/05/2021 15:15"), name: "Démangeaisons", zone: "Yeux", notes: "Oeil droit qui gratte et qui pleure", intensity: 3, duration: 7)
+symptom = Symptom.new(at: DateTime.parse("25/05/2021 15:15"), name: "Démangeaisons", zone: "Yeux", notes: "Oeil droit qui gratte et qui pleure", intensity: 2, duration: 7)
 symptom.user = jean
 symptom.save!
 
@@ -101,8 +142,8 @@ document.save!
 
 document = Document.new(document_type: "Ordonnance de médicaments", name: "allergies", at: DateTime.parse("25/04/2021 15:30"), notes: "Pour le pollen l'été")
 document.user = jean
-file = URI.open('https://res.cloudinary.com/rachelnas/raw/upload/v1621946795/ordonnance_word_safb5m.docx')
-document.file.attach(io: file, filename: 'Ordonnance.docx', content_type: 'doc/docx')
+file = URI.open('https://res.cloudinary.com/di1e8ocfv/image/upload/v1622582344/ordonnance_pollen_fklzsu.jpg')
+document.file.attach(io: file, filename: 'Pollen.jpg', content_type: 'image/jpg')
 document.save!
 
 document = Document.new(document_type: "Ordonnance de médicaments", name: "douleurs tendinite", at: DateTime.parse("11/03/2021 15:30"), notes: "Douleurs chroniques")

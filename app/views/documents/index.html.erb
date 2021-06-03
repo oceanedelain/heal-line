@@ -1,4 +1,7 @@
 <div class="container mt-5" data-controller="search">
+  <%= link_to new_document_path  do %>
+    <%= image_tag 'plus2.png', class:'add-btn' %>
+  <% end %>
   <div>
     <div id="timelineForm" class="mb-3">
       <h3 class="blue-title text-center">Mes Documents</h3>
@@ -17,9 +20,11 @@
             <%= submit_tag "", class: "btn-search" %>
         <% end %>
       </div>
+
     </div>
   </div>
   <div data-search-target="documents">
     <%= render 'list', documents: @documents %>
   </div>
 </div>
+

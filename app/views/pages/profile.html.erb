@@ -1,6 +1,6 @@
 <div class="container">
 
-  <ul class="nav nav-tabs mt-5" id="myTab" role="tablist">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
       <a class="nav-link active" id="health-tab" data-toggle="tab" href="#health" role="tab" aria-controls="health" aria-selected="true">Ma Santé</a>
     </li>
@@ -24,7 +24,12 @@
         </ul>
       </div>
 
-      <h3 class="section-title">Mes docteurs</h3>
+      <div class="flex justify-content-between">
+        <h3 class="section-title">Mes docteurs</h3>
+        <%= link_to new_doctor_path  do %>
+          <%= image_tag 'plus2.png', class:'add-btn mr-3' %>
+        <% end %>
+      </div>
       <div id="accordion">
         <ul>
           <% @doctors.each do |doctor| %>
