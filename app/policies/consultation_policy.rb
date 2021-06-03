@@ -32,4 +32,8 @@ class ConsultationPolicy < ApplicationPolicy
   def link_document?
     true
   end
+
+  def unlink_document?
+    true
+  end
 end

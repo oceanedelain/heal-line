@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :consultations, only: [ :index, :new, :create, :edit, :update, :show, :destroy ] do
     get '/link_document', to: 'consultations#link_document'
+    get '/unlink_document', to: 'consultations#unlink_document'
   end
   resources :symptoms, only:  [ :new, :create, :edit, :update, :show, :destroy ]
   resources :doctors, only:  [ :new, :create, :edit, :update, :show, :destroy ]

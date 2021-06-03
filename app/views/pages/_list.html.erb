@@ -19,6 +19,10 @@
         <% if item.is_a? Consultation %>
           <div class="mini-details">
             <p><%= item.description%></p>
+            <% if item.documents.any? %>
+              <p><%= item.documents.count %> document(s) lié(s)</p>
+            <% end %>
+
             <p><%= link_to "Détails de mon rdv", consultation_path(item) %></p>
           </div>
           <%= link_to consultation_path(item), method: :delete, data: { confirm: "Are you sure ?"} do %>

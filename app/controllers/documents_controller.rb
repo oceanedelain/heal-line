@@ -31,7 +31,6 @@ class DocumentsController < ApplicationController
     end
   end
 
-
   private
 
   def document_params

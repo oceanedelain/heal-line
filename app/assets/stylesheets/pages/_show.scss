@@ -10,7 +10,14 @@
 .fa-clock:before{
   color: $heal-orange;
 }
+#consultations-show .fa-eye:before{
+  color: $heal-orange;
+  font-size: 20px;
+}
 
+#consultations-show .fa-times:before{
+  color: white;
+}
 
 .modal {
   display: none; /* Hidden by default */
@@ -36,11 +43,18 @@
 
 /* The Close Button */
 .close {
-  color: rgb(116, 116, 116);
+  color: rgb(255, 255, 255);
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
+
+#consultations-show .fa-trash-alt:before {
+    right: 10%;
+    top: 70%;
+    position: absolute;
+    z-index: 10;
+    color: white;}
 
 .close:hover,
 .close:focus {
@@ -68,3 +82,18 @@
     font-size: 30px;
     color: #5167ad;
 }
+
+#consultations-show .form-container{
+  padding-bottom: 80px;
+}
+
+.document-p{
+  display: flex;
+  flex-direction: column;
+
+
+}
+span{
+  color: #5167ad;
+}
+

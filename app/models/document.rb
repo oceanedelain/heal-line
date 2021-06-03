@@ -12,8 +12,4 @@ class Document < ApplicationRecord
       tsearch: { prefix: true }
     }
 
-  def type_and_name
-    "#{document_type} - #{name}"
-  end
-
 end

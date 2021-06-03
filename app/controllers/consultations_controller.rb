@@ -82,6 +82,17 @@ class ConsultationsController < ApplicationController
     end
   end
 
+  def unlink_document
+    @document = Document.find(params[:document_id])
+    @consultation = Consultation.find(params[:consultation_id])
+    authorize @consultation
+    @document.consultation = nil
+    if @document.save!
+      flash[:notice] = "Mon #{@document.document_type} a bien été supprimé."
+      redirect_to consultation_path(@consultation)
+    end
+  end
+
   private
 
   def consultation_params
