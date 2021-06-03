@@ -1,7 +1,7 @@
 <div class="column" data-controller="home">
   <div class="week-container flex">
     <div class="calendar">
-      <%= link_to ('<i class="far fa-calendar-alt"></i>').html_safe, consultations_path  %>
+      <%= link_to ('<i class="far fa-calendar-alt mt-3"></i>').html_safe, consultations_path  %>
     </div>
     <% @scrolling_days.each do |day| %>
       <div class="day column position-relative"
@@ -20,18 +20,6 @@
 
   <% if current_user && current_user.next_consultation&.soon? %>
     <%= render "pages/circles", consultations: @consultations.values[0] %>
-  <% else %>
-
-    <div class="cercle-container flex column <%= circle_color %>">
-      <%= image_tag 'lightbulb.png', style:"width: 40px" %>
-      <% if @consultation %>
-        <h3>Prochain rdv</h3>
-        <p class="black-p"><%= I18n.l(@consultation.at, format: :long)%> - <%= @consultation.category%></p>
-      <p><%= random_conseil %></p>
-      <#%= link_to "Détails", consultation_path(@consultation) %>
-      <% end %>
-    </div>
-
   <% end %>
 
   <%= link_to new_consultation_path, class:"position-relative" do %>

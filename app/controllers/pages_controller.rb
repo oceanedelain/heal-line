@@ -5,14 +5,14 @@ class PagesController < ApplicationController
   end
 
   def home
-    @scrolling_days = ((Date.today - 7.days)..(Date.today + 14.days)).to_a
+    @scrolling_days = ((Date.today - 3.days)..(Date.today + 14.days)).to_a
     @consultations = current_user.consultations_group_by_day
   end
 
   def timeline
     if params[:query].present?
       @data = PgSearch.multisearch(params[:query])
-    else
+else
       @data = PgSearch::Document.all
     end
 

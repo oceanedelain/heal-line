@@ -29,6 +29,7 @@ class ConsultationsController < ApplicationController
 
   def show
     @consultation = Consultation.find(params[:id])
+    @documents = Document.all
     authorize(@consultation)
   end
 
@@ -67,6 +68,17 @@ class ConsultationsController < ApplicationController
          }
         render json: response.to_json
       end
+    end
+  end
+
+  def link_document
+    document = Document.find(params[:document][:id])
+    @consultation = Consultation.find(params[:consultation_id])
+    authorize @consultation
+    document.consultation = @consultation
+    if document.save!
+      flash[:notice] = "Mon #{document.document_type} a bien été ajouté."
+      redirect_to consultation_path(@consultation)
     end
   end
 

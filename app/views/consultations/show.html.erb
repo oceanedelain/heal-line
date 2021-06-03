@@ -12,12 +12,53 @@
         <div class="flex"><i class="fas fa-phone-alt mr-2"></i> <p>Joindre mon praticien : <%=@consultation.doctor.phone_number %>
         <%=@consultation.doctor.email %></p></div>
         <div class="flex"><i class="fas fa-quote-left mr-2"></i> <p>Mes notes : "<%=@consultation.notes %>"</p></div>
+        <% if @consultation.documents.any?%>
+          <div class="flex">
+            <i class="far fa-file-alt mr-2"></i>
+            <p><%= @consultation.documents.count %> document(s) lié(s)</p>
+
+          </div>
+            <% @consultation.documents.each do |document| %>
+              <div data-controller="lightbox">
+                <span data-action="click->lightbox#show"><%= document.type_and_name %></span>
+                  <div class="file-modal d-none" data-lightbox-target="modal">
+                    <span data-action="click->lightbox#hide">
+                      <i class="fas fa-times"></i>
+                    </span>
+                    <%= cl_image_tag document.file.key, class:"img-document" %>
+                  </div>
+              </div>
+            <% end %>
+        <% end %>
         </div>
 
         <div class="btn-validate">
-        <p class="btn-timeline btn-timeline-symptom" style="width: 180px">Lier un document</p>
+        <p id="myBtn" class="btn-timeline btn-timeline-symptom" style="width: 180px">Lier un document</p>
+
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <h4 class="blue-title text-center mb-4">Choisir un document</h4>
+              <%= form_tag  consultation_link_document_path(@consultation), method: :get, class: '' do %>
+              <div class="btn-validate mt-4 align-items-center">
+                <i class="far fa-file-alt"></i>
+                <%= collection_select :document, :id, current_user.documents, :id, :name %>
+              </div>
+              <div class="btn-validate">
+                  <button type="submit" class="btn-timeline btn-timeline-symptom mt-4">Ajouter mon document</button>
+              </div>
+              <% end %>
+
+
+            </div>
+        </div>
+
+
+
         </div>
       </div>
     </div>
   </div>
+
+
 

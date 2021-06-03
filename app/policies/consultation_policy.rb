@@ -28,4 +28,8 @@ class ConsultationPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  def link_document?
+    true
+  end
 end
