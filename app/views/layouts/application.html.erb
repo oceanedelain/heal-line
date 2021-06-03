@@ -24,12 +24,16 @@
   </head>
 
   <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
-    <%= render 'shared/navbar' %>
+    <% unless controller.action_name == "landing" %>
+      <%= render 'shared/navbar' %>
+    <% end %>
     <%#= render 'shared/flashes' %>
     <div class="<%= action_name == 'timeline' || action_name == 'new' || action_name == 'edit'  || action_name == 'index' || action_name == 'profile' ? 'container-timeline' : 'container-custom' %>">
       <%= yield %>
     </div>
     <%= render 'shared/flashes' %>
-    <%= render 'shared/footer' %>
+    <% unless controller.action_name == "landing" %>
+      <%= render 'shared/footer' %>
+    <% end %>
   </body>
 </html>

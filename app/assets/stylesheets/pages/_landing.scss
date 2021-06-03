@@ -1,0 +1,76 @@
+.linear-gradient {
+  background: linear-gradient( #234098, $heal-blue, $heal-green);
+  width: 100vw;
+  height: 100vh;
+  margin-top: -140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // position: relative;
+
+  .title {
+    color: white;
+    text-align: center;
+    margin-top: 55px;
+    font-family: 'Ruluko';
+
+    > p {
+      font-size: 18px;
+    }
+  }
+
+  // &:before {
+  //     content: "";
+  //     height: 22px;
+  //     width: 22px;
+  //     border-radius: 50%;
+  //     position: absolute;
+  //     transform: translate(-50%, 0%);
+  //     background-color: white;
+  //     top: 35vh;
+  //     right: 39.4vw;
+  //     opacity: 1;
+  // }
+
+}
+
+#logo-container {
+  position: relative;
+  &:before {
+    content: "";
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    position: absolute;
+    // transform: translate(-50%, 0%);
+    background-color: white;
+    top: 36px;
+    right: 60px;
+    animation: appear 5s linear;
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#landing {
+  position: relative;
+  > a {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+  }
+}

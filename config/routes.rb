@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  root to: 'pages#home'
+  root to: 'pages#landing'
   devise_for :users
 
+  get '/home', to: 'pages#home'
   get '/timeline', to: 'pages#timeline'
   get '/profile', to: 'pages#profile'
   get '/fetch_consultation', to: 'consultations#fetch'
