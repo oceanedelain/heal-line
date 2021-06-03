@@ -30,8 +30,8 @@
           <% end %>
         <% else %>
           <div>
-            <p><%= item.notes%></p>
             <p>Zone: <%= item.zone%></p>
+            <p><%= item.notes%></p>
           </div>
           <%= link_to symptom_path(item), method: :delete, data: { confirm: "Are you sure ?"} do %>
             <i class="far fa-trash-alt poubelle"></i>
