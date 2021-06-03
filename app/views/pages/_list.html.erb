@@ -8,7 +8,11 @@
       <div class="summary">
         <div class="h2-edit">
           <h2><%= item.name %></h2>
-          <p>à <%= I18n.l(item.at.to_time, format: "%H:%M")%></p>
+            <% if item.is_a? Consultation %>
+              <p>à <%= I18n.l(item.at.to_time, format: "%H:%M")%></p>
+            <% else %>
+              <p>intensité <%= item.intensity%>/10, pendant <%= item.duration%>h</p>
+            <% end %>
         </div>
       </div>
       <div class="details flex justify-content-between  align-items-end">
@@ -22,9 +26,8 @@
           <% end %>
         <% else %>
           <div>
-            <p><%= item.zone%></p>
-            <p>intensité <%= item.intensity%>/10, pendant <%= item.duration%>h</p>
             <p><%= item.notes%></p>
+            <p>Zone: <%= item.zone%></p>
           </div>
           <%= link_to symptom_path(item), method: :delete, data: { confirm: "Are you sure ?"} do %>
             <i class="far fa-trash-alt poubelle"></i>
