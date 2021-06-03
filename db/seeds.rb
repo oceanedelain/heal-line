@@ -44,12 +44,12 @@ consultation_yeux.user = jean
 consultation_yeux.doctor = chabot
 consultation_yeux.save!
 
-consultation = Consultation.new(description: "Appareil dentaire", category: "Dentiste", at: DateTime.parse("31/05/2021 18:30"), notes: "Se brosser les dents avant le rendez-vous")
+consultation = Consultation.new(description: "Appareil dentaire", category: "Dentiste", at: DateTime.parse("30/05/2021 18:30"), notes: "Se brosser les dents avant le rendez-vous")
 consultation.user = jean
 consultation.doctor = vincent
 consultation.save!
 
-consultation = Consultation.new(description: "Allergies", category: "Généraliste", at: DateTime.parse("10/06/2021 09:00"), notes: "Apporter ma radio")
+consultation = Consultation.new(description: "Douleurs pieds", category: "Généraliste", at: DateTime.parse("10/06/2021 09:00"), notes: "Apporter ma radio")
 consultation.user = jean
 consultation.doctor = durand
 consultation.save!
@@ -59,7 +59,7 @@ consultation.user = jean
 consultation.doctor = nour
 consultation.save!
 
-consultation = Consultation.new(description: "Soin détartrage", category: "Dentiste", at: DateTime.parse("07/06/2021 17:30"))
+consultation = Consultation.new(description: "Soin détartrage", category: "Dentiste", at: DateTime.parse("07/06/2021 17:30"), notes: "Devis à signer")
 consultation.user = jean
 consultation.doctor = vincent
 consultation.save!
@@ -74,7 +74,7 @@ consultation.user = jean
 consultation.doctor = durand
 consultation.save!
 
-consultation = Consultation.new(description: "Blanchiment des dents", category: "Dentiste", at: DateTime.parse("22/07/2021 14:30"))
+consultation = Consultation.new(description: "Blanchiment des dents", category: "Dentiste", at: DateTime.parse("22/07/2021 14:30"), notes: "Ramener le devis signé")
 consultation.user = jean
 consultation.doctor = vincent
 consultation.save!
