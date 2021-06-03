@@ -1,4 +1,4 @@
-<% if notice %>
+<% if notice && !["Réussite de la connexion.", "Réussite de la deconnexion."].include?(notice) %>
   <div class="alert alert-info alert-dismissible fade show m-1" role="alert">
     <%= notice %>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
