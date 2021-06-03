@@ -23,6 +23,7 @@ import 'bootstrap';
 import { initFlatpickr } from '../plugins/flatpickr';
 import { toggleTimelineCard } from '../components/timeline';
 import { initBoldCollapse } from '../plugins/bold_collapse';
+import { fileModal } from '../components/file_modal';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -33,4 +34,5 @@ document.addEventListener('turbolinks:load', () => {
   initFlatpickr();
   toggleTimelineCard();
   initBoldCollapse();
+  fileModal();
 });
