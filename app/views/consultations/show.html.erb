@@ -1,7 +1,7 @@
 <div class="form-container">
   <div class="row no-gutters mt-4">
     <div class="container py-4 col-10">
-        <h2 class="blue-title text-center mb-4">RDV <%= @consultation.category %></h2>
+        <h2 class="blue-title text-center mt-3 mb-4">RDV <%= @consultation.category %></h2>
         <div class="text-left mb-4 show-consult">
         <div class="flex"><i class="far fa-clock mr-2"></i> <p>Le <%= I18n.l(@consultation.at.to_date, format: :long)%> à <strong><%= I18n.l(@consultation.at.to_time, format: "%H:%M")%></strong>
         <p></div>
@@ -12,23 +12,28 @@
         <div class="flex"><i class="fas fa-phone-alt mr-2"></i> <p>Joindre mon praticien : <%=@consultation.doctor.phone_number %>
         <%=@consultation.doctor.email %></p></div>
         <div class="flex"><i class="fas fa-quote-left mr-2"></i> <p>Mes notes : "<%=@consultation.notes %>"</p></div>
-        <% if @consultation.documents.any?%>
+        <% if @consultation.documents.any? %>
           <div class="flex">
             <i class="far fa-file-alt mr-2"></i>
-            <p><%= @consultation.documents.count %> document(s) lié(s)</p>
-
-          </div>
-            <% @consultation.documents.each do |document| %>
-              <div data-controller="lightbox">
-                <span data-action="click->lightbox#show"><%= document.type_and_name %></span>
-                  <div class="file-modal d-none" data-lightbox-target="modal">
-                    <span data-action="click->lightbox#hide">
-                      <i class="fas fa-times"></i>
-                    </span>
-                    <%= cl_image_tag document.file.key, class:"img-document" %>
-                  </div>
-              </div>
+            <div class="document-p mb-3">
+              <p><%= @consultation.documents.count %> document(s) lié(s)</p>
+                <% @consultation.documents.each do |document| %>
+                <div data-controller="lightbox">
+                    <span data-action="click->lightbox#show"><i class="far fa-eye mr-2"></i><%= document.name %></span>
+                      <div class="file-modal d-none" data-lightbox-target="modal">
+                        <span data-action="click->lightbox#hide">
+                          <i class="fas fa-times"></i>
+                        </span>
+                        <div class="flex column">
+                          <%= cl_image_tag document.file.key, class:"img-document" %>
+                          <%= link_to "<i class='far fa-trash-alt suppression-icon'></i>".html_safe, consultation_unlink_document_path(@consultation, document_id: document.id)  %>
+                      </div>
+                    </div>
+                </div>
             <% end %>
+            </div>
+          </div>
+
         <% end %>
         </div>
 
