@@ -11,4 +11,9 @@ class Document < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
+  def type_and_name
+    "#{document_type} - #{name}"
+  end
+
 end
