@@ -14,7 +14,9 @@ export default class extends Controller {
   }
 
   focus(event) {
-    this.cardTargets.forEach(card => card.classList.remove('open'))
+    this.cardTargets
+        .filter(card => card !== event.currentTarget)
+        .forEach(card => card.classList.remove('open'))
     event.currentTarget.classList.toggle('open')
   }
 }
