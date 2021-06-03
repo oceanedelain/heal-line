@@ -33,6 +33,6 @@ class PagesController < ApplicationController
   end
 
   def profile
-    @doctors = current_user.doctors
+    @doctors = current_user.doctors.distinct
   end
 end
