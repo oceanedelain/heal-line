@@ -23,3 +23,16 @@
   -webkit-align-items: center;
   align-items: center;
 }
+
+
+.container-custom .column > #swiper > .swiper-pagination {
+  display: none;
+}
+
+
+#swiper .swiper-pagination-bullet {
+  width: 15px;
+  height: 15px;
+  background: white;
+  margin: 0 5px 8px;
+}
