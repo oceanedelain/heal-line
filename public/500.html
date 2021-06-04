@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>We're sorry, but something went wrong (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
@@ -23,7 +24,7 @@
     border-right-color: #999;
     border-left-color: #999;
     border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
+    border-top: #EF5F5C solid 4px;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
     background-color: white;
@@ -33,7 +34,7 @@
 
   .rails-default-error-page-2 h1 {
     font-size: 100%;
-    color: #730E15;
+    color: white;
     line-height: 1.5em;
   }
 
@@ -51,16 +52,25 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+
+  .box2{
+    background: linear-gradient(180.02deg, #EF5F5C 3.98%, #EF5F5C 4.43%, #1A659E 66.85%, #5167AD 99.98%);
+    height: 40vh;
+    color: white;
+    border-radius: 10px;
+  }
   </style>
 </head>
 
 <body class="rails-default-error-page-2">
   <!-- This file lives in public/500.html -->
   <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <div class="box2">
+      <h1>Aie...</h1>
+      <p>Ça a tout pété !</p>
+
+    <img src="https://www.natifs.fr/wp-content/uploads/2017/10/GIF-panda.gif" alt="Panda vener" style="width: 100%;">
+  </div>
   </div>
 
   <div class="page-error">
