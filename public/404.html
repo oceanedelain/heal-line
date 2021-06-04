@@ -2,8 +2,10 @@
 <html>
 <head>
   <title>The page you were looking for doesn't exist (404)</title>
+
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
+
   .rails-default-error-page-2 {
     background-color: #EFEFEF;
     color: #2E2F30;
@@ -23,24 +25,24 @@
     border-right-color: #999;
     border-left-color: #999;
     border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
+    border-top: #5167AD solid 4px;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
-    background-color: white;
+    /* background-color: white; */
     padding: 7px 12% 0;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
 
   .rails-default-error-page-2 h1 {
     font-size: 100%;
-    color: #730E15;
+    color: white;
     line-height: 1.5em;
   }
 
   .rails-default-error-page-2 div.dialog > p {
     margin: 0 0 1em;
     padding: 1em;
-    background-color: #F7F7F7;
+    /* background-color: #F7F7F7; */
     border: 1px solid #CCC;
     border-right-color: #999;
     border-left-color: #999;
@@ -51,17 +53,24 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+
+  .box{
+    height: 40vh;
+    background: linear-gradient(180.02deg, #3D57A4 -95.29%, #1A659E 0.1%, #5EC2B4 99.98%);
+    color: white;
+  }
+
   </style>
 </head>
 
 <body class="rails-default-error-page-2">
   <!-- This file lives in public/404.html -->
   <div class="dialog">
-    <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
+    <div class="box">
+      <h1>Oupsi...</h1>
+      <p>Cette page n'existe pas.</p>
+      <img src="https://media1.tenor.com/images/99ae42efae7963340c8a4a63012c857c/tenor.gif?itemid=11570520" alt="Mr Bean" style="width: 100%;">
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
   </div>
 </body>
 </html>
