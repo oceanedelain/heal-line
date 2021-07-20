@@ -25,7 +25,7 @@ class DocumentsController < ApplicationController
 
     if @document.save
       flash[:notice] = "Mon #{@document.name} a bien été ajouté."
-      redirect_to timeline_path
+      redirect_to documents_path
     else
       render :new
     end
