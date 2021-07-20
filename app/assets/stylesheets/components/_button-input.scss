@@ -10,6 +10,12 @@
   border-radius: 50%;
 }
 
+.pen-btn{
+  position: absolute;
+  transform: translate(1000%, -20%);
+  width: 30px;
+  height: 30px;
+}
 
 .btn-orange {
   background: $heal-orange;
