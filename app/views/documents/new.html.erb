@@ -9,10 +9,10 @@
         <%= f.input :name, :label => "Nom du document :", placeholder: '....' %>
         <%= f.input :document_type, :label => "Type de document :", prompt: 'Type de document', :collection => ["Compte-rendu","Résultats d'analyse","Imagerie médicale","Ordonnance de médicaments","Ordonnance de biologie","Ordonnance d'imagerie","Soins paramédicaux","Courrier d'adressage"] %>
         <%= f.input :notes, placeholder: 'Annotez votre document...' %>
-        <%= f.input :file, as: :file, class:"btn-blue" %>
+        <%= f.input :Document, as: :file, class:"btn-blue" %>
         <div class="btn-validate">
-        <%= f.submit "Ajouter ce document", class: "btn-blue" %>
-          </div>
+          <%= f.submit "Ajouter ce document", class: "btn-blue" %>
+        </div>
         <% end %>
     </div>
   </div>

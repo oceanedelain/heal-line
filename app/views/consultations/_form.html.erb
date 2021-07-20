@@ -17,7 +17,8 @@
         <div class="input-notes">
         <%= f.input :notes, placeholder: 'À quoi devez-vous penser pour ce rdv ?' %>
         <div class="btn-validate">
-          <%= f.submit "Ajouter cette consultation", class: " btn-blue" %>
+          <% button_text = @consultation.new_record? ? "Ajouter cette consultation" : "Editer cette consultation" %>
+          <%= f.submit button_text, class: "btn-blue align-center" %>
         </div>
     <% end %>
   </div>

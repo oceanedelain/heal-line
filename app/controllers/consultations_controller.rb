@@ -43,7 +43,7 @@ class ConsultationsController < ApplicationController
     @consultation.update(consultation_params)
     authorize(@consultation)
     flash[:notice] = "Ma consultation a bien été éditée."
-    redirect_to timeline_path
+    redirect_to consultation_path
   end
 
   def destroy

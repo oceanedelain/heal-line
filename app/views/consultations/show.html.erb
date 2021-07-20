@@ -1,8 +1,11 @@
 <div class="form-container">
   <div class="row no-gutters mt-4">
     <div class="container py-4 col-10">
-        <h2 class="blue-title text-center mt-3 mb-4">RDV <%= @consultation.category %></h2>
-        <div class="text-left mb-4 show-consult">
+      <%= link_to edit_consultation_path, class:"position-relative" do %>
+        <%= image_tag 'pen.png', class:'pen-btn' %>
+      <% end %>
+      <h2 class="blue-title text-center mt-3 mb-4">RDV <%= @consultation.category %></h2>
+      <div class="text-left mb-4 show-consult">
         <div class="flex"><i class="far fa-clock mr-2"></i> <p>Le <%= I18n.l(@consultation.at.to_date, format: :long)%> à <strong><%= I18n.l(@consultation.at.to_time, format: "%H:%M")%></strong>
         <p></div>
         <div class="flex"><i class="fas fa-user-md mr-2"></i> <p>Avec le Dr. <strong><%=@consultation.doctor.first_name%> <%=@consultation.doctor.last_name %></strong><p></div>
