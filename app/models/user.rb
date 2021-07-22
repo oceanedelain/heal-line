@@ -24,6 +24,6 @@ class User < ApplicationRecord
   end
 
   def consultations_group_by_day
-    consultations.upcoming.order(at: :asc).group_by { |consultation| consultation.at.to_date }
+    Consultation.exists?(consultations.upcoming.order(at: :asc).group_by { |consultation| consultation.at.to_date })
   end
 end
