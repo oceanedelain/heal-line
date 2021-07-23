@@ -1,3 +1,4 @@
+        <% if current_user.consultations.any? %>
 <% data.each do |item| %>
 
   <li class="timeline-card <%= past?(item) %> <%= data_type(item) %>"
@@ -13,6 +14,8 @@
             <% else %>
               <p>intensité <%= item.intensity%>/10, pendant <%= item.duration%>h</p>
             <% end %>
+         
+
         </div>
       </div>
       <div class="details flex justify-content-between  align-items-end">
@@ -41,4 +44,5 @@
     <p class="timeline-date"><%= item.at.strftime('%e %b') %></p>
     <p class="timeline-year"><%= item.at.strftime('%Y') %></p>
   </li>
+    <% end %>
 <% end %>

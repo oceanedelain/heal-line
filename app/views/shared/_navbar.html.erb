@@ -10,7 +10,9 @@
     </div>
     <%= link_to profile_path, class:"lien-logo" do %>
       <%# <img class="logo avatar" src="https://res.cloudinary.com/di1e8ocfv/image/upload/v1622648156/portrait_frx0ei.jpg"> %>
-      <%# <%= image_tag(current_user.avatar, alt: "avatar", class: "logo avatar") %>
+      <% if current_user %>
+        <%= image_tag(current_user.avatar, alt: "avatar", class: "logo avatar") %>
+      <% end %>
 
     <% end %>
 
