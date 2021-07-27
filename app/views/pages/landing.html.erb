@@ -1,5 +1,10 @@
 <div class="linear-gradient" id="landing">
-  <%= link_to "", home_path %>
+  <% if current_user %>
+    <%= link_to "", home_path %>
+  <% else %>
+    <%= link_to "",  new_user_session_path %>
+  <% end %>
+  
   <div class="logo-heal-line">
   <%= render "logo" %>
   </div>
@@ -8,4 +13,3 @@
     <p>Suivez votre parcours de santé</p>
   </div>
 </div>
-

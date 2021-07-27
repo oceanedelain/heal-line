@@ -10,6 +10,15 @@ class User < ApplicationRecord
   has_many :documents, dependent: :destroy
 
   has_one_attached :avatar
+  after_commit :add_default_avatar, on: %i[create update]
+
+  def avatar_thumbnail
+    # if avatar.attached?
+    #   avatar.variant(resize: "150x150!").processed
+    # else
+      '/default-avatar.jpg'
+    # end
+  end
 
   def next_consultation
     consultations.upcoming.order(:at).first
@@ -25,5 +34,20 @@ class User < ApplicationRecord
 
   def consultations_group_by_day
     consultations.upcoming.order(at: :asc).group_by { |consultation| consultation.at.to_date }
+  end
+
+  private
+
+  def add_default_avatar
+    unless avatar.attached?
+      avatar.attach(
+        io: File.open(
+        Rails.root.join(
+          'app', 'assets', 'images', 'default-avatar.jpg'
+        )
+      ), filename: 'default-avatar.jpg',
+      content_type: 'image/jpg'
+      )
+    end
   end
 end

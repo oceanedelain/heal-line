@@ -7,6 +7,14 @@
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.error_notification %>
 
+          <div class="field">
+            <% if resource.avatar.attached? %>
+              <%= image_tag(resource.avatar) %>
+            <% else %>
+            <%= image_tag("/default-avatar.jpg") %>
+            <% end %>
+          </div>
+
           <div class="form-inputs">
             <%= f.input :email,
                         required: true,
@@ -20,6 +28,10 @@
                         required: true,
                         input_html: { autocomplete: "new-password" } %>
             <%#= f.input :photo, as: :avatar, class:"btn-blue" %>
+            <%= f.file_field :avatar,
+              placeholder: 'Upload picture',
+              direct_upload: true
+            %>
           </div>
 
 

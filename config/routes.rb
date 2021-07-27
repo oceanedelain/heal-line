@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: 'pages#landing'
   devise_for :users
+  resources :users, only: %i[show]
 
   get '/home', to: 'pages#home'
   get '/timeline', to: 'pages#timeline'
