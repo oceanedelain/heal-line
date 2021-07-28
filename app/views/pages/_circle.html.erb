@@ -1,13 +1,13 @@
 <div class="swiper-slide">
   <div class="cercle-container flex column <%= circle_color %>">
     <h5 class="black-p"><%= I18n.l(consultation.at, format: :short)%></h5>
-    <h3 class=""><%= consultation.category %></h3>
+    <h3 class=""><%= consultation.category.capitalize %></h3>
     <div class="info-rdv">
       <div class="flex">
         <i class="fas fa-map-marker-alt mr-3"></i><p><%= consultation.doctor.address %></p>
       </div>
       <div class="flex">
-        <i class="fas fa-user-md mr-3"></i><p> Dr <%= consultation.doctor.last_name %></p>
+        <i class="fas fa-user-md mr-3"></i><p> Dr <%= consultation.doctor.last_name.capitalize %></p>
       </div>
       <% if consultation.notes.present? %>
         <div class="flex">
