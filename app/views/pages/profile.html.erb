@@ -13,6 +13,9 @@
     <div class="tab-pane fade show active" id="health" role="tabpanel" aria-labelledby="health-tab">
 
       <div class="infos">
+        <%= link_to edit_user_registration_path, class:"position-relative" do %>
+          <%= image_tag 'pen.png', class:'pen-btn' %>
+        <% end %>
         <h3 class="section-title">Mes infos</h3>
         <ul>
           <li><span>Numéro SSN</span> : <%= current_user.ssn %></li>
@@ -38,7 +41,7 @@
                 <h5 class="mb-0">
                   <li>
                     <div class="doc-container" data-toggle="collapse" data-target="#doctor-<%= doctor.id %>" aria-expanded="true" aria-controls="doctor-<%= doctor.id %>">
-                      Dr. <%= doctor.last_name %> <%= doctor.first_name %> <span class="text-secondary"><%= doctor.specialty %></span>
+                      Dr. <%= doctor.last_name.capitalize %> <%= doctor.first_name.capitalize %> <span class="text-secondary"><%= doctor.specialty %></span>
                     </div>
                     </h5>
                   </div>
@@ -52,11 +55,18 @@
           <% end %>
         <ul>
       </div>
+      <p class="text-right">
+        <%= link_to "> Me déconnecter", destroy_user_session_path, method: :delete, class:"deconnect" %>
+      </p>
     </div>
 
 
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
       <div class="infos">
+        <%= link_to edit_user_registration_path, class:"position-relative" do %>
+          <%= image_tag 'pen.png', class:'pen-btn' %>
+        <% end %>
+
         <h3 class="blue-title">Mes infos</h3>
         <ul>
           <li><span>Prénom</span> : <%= current_user.first_name %></li>
@@ -68,13 +78,14 @@
           <li><span>Email</span> : <%= current_user.email %></li>
           <li><span>Mot de passe</span> : **********</li>
         </ul>
-        <%= link_to "> Me déconnecter", destroy_user_session_path, method: :delete, class:"deconnect" %>
-
         <p>
-          <%= link_to "Editer mon profil", edit_user_registration_path %>
-          <br/>
-          <%= image_tag(current_user.avatar_thumbnail) %>
+          <%#= image_tag(current_user.avatar_thumbnail) %>
         </p>
+
+        <p class="text-right">
+          <%= link_to "> Me déconnecter", destroy_user_session_path, method: :delete, class:"deconnect" %>
+        </p>
+
 
       </div>
     </div>
