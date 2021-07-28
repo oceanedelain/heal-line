@@ -38,14 +38,37 @@
           </div>
           <div class="form-flex">
             <%= f.input :gender, :label => "Genre", placeholder: 'Non-Binaire' %>
-            <%= f.input :birth_date, :label => "Date de Naissance", placeholder: '11/05/1994' %>
+            <div class="div-date">
+              <%= f.input :birth_date, :label => "Date de Naissance", input_html: {class: "datepicker"}, placeholder: '11/05/1994' %>
+            </div>
           </div>
+
           <%= f.input :phone_number, :label => "Mon 06", placeholder: '0622227147' %>
           <%= f.input :address, :label => "Adresse", placeholder: '17 bis rue de Thionville' %>
 
         <div class="field">
           <%= f.file_field :avatar %>
         </div>
+        <br>
+
+
+
+          <%= f.input :ssn, :label => "# Sécurité Sociale", placeholder: '260042531111426' %>
+
+        <div class="form-flex">
+          <%= f.input :height, :label => "Taille", placeholder: '175cm' %>
+          <%= f.input :weight, :label => "Poids", placeholder: '70kg' %>
+        </div>
+
+          <%= f.input :blood_group, :label => "Groupe Sanguin", placeholder: 'AB+' %>
+        <%= f.input :allergies, :label => "Allergies", placeholder: 'Pollen' %>
+        <%= f.input :treatments, :label => "Traitements", placeholder: 'Antihistaminique' %>
+
+
+
+
+
+
 
 
         <%# end%>
