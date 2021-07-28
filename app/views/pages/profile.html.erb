@@ -19,8 +19,8 @@
         <h3 class="section-title">Mes infos</h3>
         <ul>
           <li><span>Numéro SSN</span> : <%= current_user.ssn %></li>
-          <li><span>Taille</span> : <%= current_user.height %></li>
-          <li><span>Poids</span> : <%= current_user.weight %></li>
+          <li><span>Taille</span> : <%= current_user.height %> cm</li>
+          <li><span>Poids</span> : <%= current_user.weight %> kg</li>
           <li><span>Groupe sanguin</span> : <%= current_user.blood_group %></li>
           <li><span>Allergies</span> : <%= current_user.allergies %></li>
           <li><span>Traitements</span> : <%= current_user.treatments %></li>
@@ -91,3 +91,13 @@
     </div>
   </div>
 </div>
+
+
+
+
+        <%#= link_to edit_user_registration_path, class:"position-relative" do %>
+          <%#= image_tag 'pen.png', class:'pen-btn' %>
+        <%# end %>
+
+      <%#= link_to "Consultations", edit_user_registration_path(choice: params[:choice] == "health" ? :all : :consultation, query: params[:query]), class:"btn-timeline btn-timeline-consultation #{btn_active_class("consultation")}" %>
+      <%#= link_to "Symptômes", edit_user_registration_path(choice: params[:choice] == "symptom" ? :all : :symptom, query: params[:query]), class:"pl-3 pr-3 btn-timeline btn-timeline-symptom #{btn_active_class("symptom")}" %>
