@@ -34,17 +34,17 @@
         <%#= simple_form_for @user do |f| %>
           <div class="form-flex">
             <%= f.input :first_name, :label => "Prénom", placeholder: 'Serge' %>
-            <%= f.input :last_name, :label => "Nom", placeholder: 'Cohen' %>
+            <%= f.input :last_name, :label => "Nom", placeholder: 'Lama' %>
           </div>
           <div class="form-flex">
             <%= f.input :gender, :label => "Genre", placeholder: 'Non-Binaire' %>
             <div class="div-date">
-              <%= f.input :birth_date, :label => "Date de Naissance", input_html: {class: "datepicker"}, placeholder: '11/05/1994' %>
+              <%= f.input :birth_date, :label => "Date de Naissance", input_html: {class: "datepicker"}, placeholder: '11/02/1943' %>
             </div>
           </div>
 
-          <%= f.input :phone_number, :label => "Mon 06", placeholder: '0622227147' %>
-          <%= f.input :address, :label => "Adresse", placeholder: '17 bis rue de Thionville' %>
+          <%= f.input :phone_number, :label => "Téléphone", placeholder: '0622227147' %>
+          <%= f.input :address, :label => "Adresse", placeholder: '17 rue desnouettes' %>
 
         <div class="field">
           <%= f.file_field :avatar %>
@@ -56,8 +56,8 @@
           <%= f.input :ssn, :label => "# Sécurité Sociale", placeholder: '260042531111426' %>
 
         <div class="form-flex">
-          <%= f.input :height, :label => "Taille", placeholder: '175cm' %>
-          <%= f.input :weight, :label => "Poids", placeholder: '70kg' %>
+          <%= f.input :height, :label => "Taille (en cm)", placeholder: '175cm' %>
+          <%= f.input :weight, :label => "Poids (en kg)", placeholder: '70kg' %>
         </div>
 
           <%= f.input :blood_group, :label => "Groupe Sanguin", placeholder: 'AB+' %>
